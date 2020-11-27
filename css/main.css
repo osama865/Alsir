@@ -1,0 +1,83 @@
+*{
+  direction: rtl;
+}
+.text-right{
+  text-align: right;
+}
+.ftco-navbar-light .navbar-brand{
+  color: #a92d2d;
+}
+.coh{
+  color: black;
+  font-size: 30px;
+  font-weight: 700;
+}
+.fsize{
+  font-size: 30px;
+}
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link{
+  font-size: 30px;
+  font-weight: 600;
+  float: right;
+}
+.ftco-section p{
+  font-weight: 600;
+  font-size: 16px;
+}
+.ftco-counter{
+  margin-top: 10px;
+}
+.ftco-counter span{
+  font-size: 20px;
+  font-weight: 600;
+}
+.ftco-section .img{
+  -webkit-border-radius: 50px;
+  -o-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+.reh2{
+  background-color: rgba(110,110,110,.4);
+  font-size: 30px;
+  font-weight: 600;
+}
+.ftco-section .block-7 .p-4 ul li{
+  font-size: 18px;
+}
+.ftco-faqs .card-body ol li{
+  text-align: right;
+  font-size: 18px;
+  font-weight: 700;
+}
+.ftco-faqs .myaccordion .card-header p{
+  padding-right: 34%;
+  font-weight: 700
+}
+.ftco-section p{
+  text-align: right;
+  padding-right: 10px;
+}
+.heading-section h2{
+  text-align: center;
+}
+.owl-carousel .owl-stage{
+  direction: rtl;
+}
+.testimony-section .owl-carousel .owl-stage-outer{
+  direction: ltr;
+}
+.ftco-section .img{
+  margin-left: 50px;
+}
+footer{
+  direction: rtl;
+}
+.footer .footer-heading{text-align: right;}
+.footer .footer-heading:after{
+  right: 0;
+}
+.ftco-section{
+  margin-bottom: 50px;
+  margin-top: 50px;
+}

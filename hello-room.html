@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mohammed Alseer</title>
+<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="fontawesome/css/svg-with-js.min.css" rel="stylesheet" type="text/css" />
+    <link href="fontawesome/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="fontawesome/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="fontawesome/css/v4-shims.min.css" rel="stylesheet" type="text/css" />
+    
+  </head>
+  <body dir="rtl">
+
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade text-center" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">لمتابعه عملية الشراء</h4>
+      </div>
+      <div class="modal-body">
+                      <form>
+
+      <input type="text" class="form-control" placeholder="الاسم الاول">
+      <input type="text" class="form-control" placeholder="الاسم الاخير">
+      <input type="text" class="form-control" placeholder="رقم الهاتف " id="phone">
+      <div class="checkPhone"></div>
+      <input type="text" class="form-control" id="inputAddress" placeholder="العنوان">
+    <label for="exampleFormControlSelect1">حدد عدد الغرف </label>
+       <select class="form-control" id="exampleFormControlSelect1" >
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+      <div class="form-group">
+            <label for="message-text" class="col-form-label">تلميح:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+           <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label">طريقه الدفع</legend>
+      <div class="col-sm-12 col-md-12">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked style="margin-right: 80px;">
+          <label class="form-check-label" for="gridRadios1">كاش في المعرض</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <label class="form-check-label" for="gridRadios2">شيك</label>
+        </div>
+        <div class="form-check disabled">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" >
+          <label class="form-check-label" for="gridRadios3">بنكك</label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+</form>
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-success btn-lg"> متابعه عملية الشراء</button>
+                    <button type="button" class="btn btn-danger btn-lg float-left" id="subForm" data-dismiss="modal"> التراجع</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+   <!--end section pay room -->
+
+   <!-- start Bankak -->
+          <div class="bankak">
+
+<!-- Modal -->
+<div id="myBankak" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">bankak</h4>
+      </div>
+      <div class="modal-body">
+                      <form>
+
+      <input type="text" class="form-control" placeholder="رقم الحساب">
+      <input type="password" class="form-control" placeholder="كلمة المرور">
+      
+          
+</form>
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-success btn-lg"> متابعه عملية الشراء</button>
+                    <button type="button" class="btn btn-danger btn-lg float-left" id="subForm" data-dismiss="modal"> التراجع</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+          </div>
+<!-- end Bankak --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div id="myimage" class="modal fade text-center" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"> صور للغرفه</h4>
+      </div>
+      <div class="modal-body">
+                     <div id="myCarousel" class="carousel slide" data-ride="carousel" style="max-height: 480px;">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="image/normal-1.jpg" alt="Los Angeles" style="max-height: 480px;">
+    </div>
+
+    <div class="item">
+      <img src="image/normal-1.jpg" alt="Chicago" style="max-height: 480px;">
+    </div>
+
+    <div class="item">
+      <img src="image/normal-1.jpg" alt="New York" style="max-height: 480px;">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+      </div>
+      <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-lg float-left btnFadeOut col-md-12" id="subForm" data-dismiss="modal"> التراجع</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+    <!-- start header formation -->
+    <header class="formation navbar-fixed-top">
+      <div class="container">
+        <div class="for-soch">
+          <ul>
+            <li> <a href="http://www.facebook.com/m3radalseer/"><i class="  fa fa-facebook-square"></i></a></li>
+             <li><a href="https://wa.me/249996765580"><i class="  fa fa-whatsapp"></i></a></li>
+             <li><a href="https://instagram.com/m3radalseer?igshid=zq58gvcx22h7"><i class="fa fa-instagram"></i></a>
+          </ul>
+        </div>
+        <div class="nomber"><span>Whatsapp  </span>+249996765580</div>
+            </div>
+    </header>
+    <!-- end header formation -->
+
+
+
+    <!--start navbar -->
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">معارض محمد السر</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li ><a href="index.html">الرئيسيه <span class="sr-only">(current)</span></a></li>
+            <li class="dropdown active">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">غرف النوم <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li ><a href="king.html">غرف نوم ملكيه</a></li>
+                <li ><a href="normal.html">غرف نوم عاديه</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="active"><a href="hello-room.html">غرف الاستقبال "الولادة"</a></li>
+              </ul>
+            </li>
+          
+            <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+        
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+    <!--end navbar -->
+    <section class="store-king room-store text-center">
+      <div class="container">
+        <h1>إختار غرفت إستقبال المولود الجديد من هنا</h1>
+        <div class="row">
+          <!-- start container -->
+
+
+       <!-- start hello room -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="card" >
+                          <div class="hover-store text-center">
+                          <div class="img-store">
+              <img src="image/hello-1.jpg" class="card-img-top" alt="hello room">
+            </div>
+              <div class="back-img-store ">
+                <h3>السعر بالجنيه  </h3>
+               <span class="helloPrice label label-success"> 35 الف</span>
+              </div>
+            </div>
+
+              <div class="card-body">
+                <h5 class="card-title"><a href="#" data-toggle="modal" data-target="#myimage">غرفه الإستقبال <span class="glyphicon glyphicon-heart-empty"></a></h5>
+                <p class="card-text"> غرفه الاستقبال لاستقبال المولود الجديد بتصميم و ديكور يمييزك سيدتي عن الباقيين و بالوان و اشكال عديده</p>
+                <button  class="btn btn-primary btn-bg" href="showPay" data-toggle="modal" data-target="#myModal">الشراء الان</button>
+              </div>
+            </div>
+                      </div>
+                      <!-- end hello room -->
+
+
+       <!-- start hello room -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="card" >
+                          <div class="hover-store text-center">
+                          <div class="img-store">
+              <img src="image/hello-2.jpg" class="card-img-top" alt="hello room">
+            </div>
+              <div class="back-img-store ">
+                <h3>السعر بالجنيه  </h3>
+               <span class="helloPrice label label-success"> 35 الف</span>
+              </div>
+            </div>
+
+              <div class="card-body">
+                <h5 class="card-title"><a href="#" data-toggle="modal" data-target="#myimage">غرفه الإستقبال <span class="glyphicon glyphicon-heart-empty"></a></h5>
+                <p class="card-text"> غرفه الاستقبال لاستقبال المولود الجديد بتصميم و ديكور يمييزك سيدتي عن الباقيين و بالوان و اشكال عديده</p>
+                <button  class="btn btn-primary btn-bg" href="showPay" data-toggle="modal" data-target="#myModal">الشراء الان</button>
+              </div>
+            </div>
+                      </div>
+                      <!-- end hello room -->
+
+
+       <!-- start hello room -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="card" >
+                          <div class="hover-store text-center">
+                          <div class="img-store">
+              <img src="image/hello-3.jpg" class="card-img-top" alt="hello room">
+            </div>
+              <div class="back-img-store ">
+                <h3>السعر بالجنيه  </h3>
+               <span class="helloPrice label label-success"> 35 الف</span>
+              </div>
+            </div>
+
+              <div class="card-body">
+                <h5 class="card-title"><a href="#" data-toggle="modal" data-target="#myimage">غرفه الإستقبال <span class="glyphicon glyphicon-heart-empty"></a></h5>
+                <p class="card-text"> غرفه الاستقبال لاستقبال المولود الجديد بتصميم و ديكور يمييزك سيدتي عن الباقيين و بالوان و اشكال عديده</p>
+                <button  class="btn btn-primary btn-bg" href="showPay" data-toggle="modal" data-target="#myModal">الشراء الان</button>
+              </div>
+            </div>
+                      </div>
+                      <!-- end hello room -->
+
+
+       <!-- start hello room -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="card" >
+                          <div class="hover-store text-center">
+                          <div class="img-store">
+              <img src="image/hello-4.jpg" class="card-img-top" alt="hello room">
+            </div>
+              <div class="back-img-store ">
+                <h3>السعر بالجنيه  </h3>
+               <span class="helloPrice label label-success"> 35 الف</span>
+              </div>
+            </div>
+
+              <div class="card-body">
+                <h5 class="card-title"><a href="#" data-toggle="modal" data-target="#myimage">غرفه الإستقبال <span class="glyphicon glyphicon-heart-empty"></a></h5>
+                <p class="card-text"> غرفه الاستقبال لاستقبال المولود الجديد بتصميم و ديكور يمييزك سيدتي عن الباقيين و بالوان و اشكال عديده</p>
+                <button  class="btn btn-primary btn-bg" href="showPay" data-toggle="modal" data-target="#myModal">الشراء الان</button>
+              </div>
+            </div>
+                      </div>
+                      <!-- end hello room -->
+
+
+       <!-- start hello room -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="card" >
+                          <div class="hover-store text-center">
+                          <div class="img-store">
+              <img src="image/hello-5.jpg" class="card-img-top" alt="hello room">
+            </div>
+              <div class="back-img-store ">
+                <h3>السعر بالجنيه  </h3>
+               <span class="helloPrice label label-success"> 35 الف</span>
+              </div>
+            </div>
+
+              <div class="card-body">
+                <h5 class="card-title"><a href="#" data-toggle="modal" data-target="#myimage">غرفه الإستقبال <span class="glyphicon glyphicon-heart-empty"></a></h5>
+                <p class="card-text"> غرفه الاستقبال لاستقبال المولود الجديد بتصميم و ديكور يمييزك سيدتي عن الباقيين و بالوان و اشكال عديده</p>
+                <button  class="btn btn-primary btn-bg" href="showPay" data-toggle="modal" data-target="#myModal">الشراء الان</button>
+              </div>
+            </div>
+                      </div>
+                      <!-- end hello room -->
+
+
+       <!-- start hello room -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="card" >
+                          <div class="hover-store text-center">
+                          <div class="img-store">
+              <img src="image/hello-6.jpg" class="card-img-top" alt="hello room">
+            </div>
+              <div class="back-img-store ">
+                <h3>السعر بالجنيه  </h3>
+               <span class="helloPrice label label-success"> 35 الف</span>
+              </div>
+            </div>
+
+              <div class="card-body">
+                <h5 class="card-title"><a href="#" data-toggle="modal" data-target="#myimage">غرفه الإستقبال <span class="glyphicon glyphicon-heart-empty"></a></h5>
+                <p class="card-text"> غرفه الاستقبال لاستقبال المولود الجديد بتصميم و ديكور يمييزك سيدتي عن الباقيين و بالوان و اشكال عديده</p>
+                <button  class="btn btn-primary btn-bg" href="showPay" data-toggle="modal" data-target="#myModal">الشراء الان</button>
+              </div>
+            </div>
+                      </div>
+                      <!-- end hello room -->
+
+
+
+          <!-- end container -->
+
+         </div>
+      </div>
+
+
+
+
+    </section>
+
+
+    <section class="ftco-section bg-light" id="contacc">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center ml mb-5">
+            <h2 class="heading-section">للتواص مع المعرض</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <div class="wrapper">
+              <div class="row mb-5">
+                <div class="col-md-3">
+                  <div class="dbox w-100 text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                      <span class="fa fa-map-marker"></span>
+                    </div>
+                    <div class="text">
+                      <p><span>العنوان:</span> الخرطوم شارع المطار جنوب لفه جوبا</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="dbox w-100 text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                      <span class="fa fa-phone"></span>
+                    </div>
+                    <div class="text">
+                      <p><span>الهاتف:</span> <a href="tel://1234567920">+ 249 996765580</a></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="dbox w-100 text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                      <span class="fa fa-instagram"></span>
+                    </div>
+                    <div class="text">
+                      <p><span>تابعنا علي الانستغرام:</span> <a href="https://instagrem.com/m3radalseer?igshid=zq58gvcx22h7">m3radalseer</a></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="dbox w-100 text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                      <span class="fa fa-globe"></span>
+                    </div>
+                    <div class="text">
+                      <p><span>تابعنا علي الفيسبوك:</span> <a href="https://www.facebook.com/m3radalseer">m3radalseer/facebook</a></p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <div class="perntTop align-items-center">
+        <div class="gotouop align-items-center"><a href="#" class="acer"><span class="fa fa-angle-double-up"></span></a></div>
+      </div>
+
+
+
+    <!-- start section footer -->
+    <section class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-xs-3">
+             <a href="www.facebook.com/m3radalseer/"><i class="  fa fa-facebook-square"></i></a>
+             <a href="https://wa.me/249996765580"><i class="  fa fa-whatsapp"></i></a>
+                          <a href="https://instagram.com/m3radalseer?igshid=zq58gvcx22h7"><i class="fa fa-instagram"></i></a>
+
+          </div>
+          <div class="col-md-9 col-xs-9">
+
+            <ul>
+              <li><a href="index.html">الرئيسيه</a></li>
+              <li><a href="index.html">غرف نوم</a></li>
+              <li><a href="king.html">غرف ملكيه</a></li>
+              <li><a href="hello-room.html">غرف إستقبال</a></li></ul>
+              <ul>
+              <li><a href="normal.html">غرف عاديه</a></li>
+              <li><a href="contact.html">للتواصل</a></li>
+            </ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; Copyright 2020 by <span><a href="http://www.mostaql.com/u/Mosiba">Abdul Rahman</a></span>
+      </div>
+    </section>
+
+    <!-- start section footer -->
+    
+
+ <!-- start java script -->
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="fontawesome/js/all.min.js"></script>
+    <script type="text/javascript" src="fontawesome/js/fontawesome.min.js"></script>
+    <script type="text/javascript" src="fontawesome/js/v4-shims.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+  </body>
+</html>

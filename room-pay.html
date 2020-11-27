@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mohammed Alseer</title>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="fontawesome/css/svg-with-js.min.css" rel="stylesheet" type="text/css" />
+    <link href="fontawesome/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="fontawesome/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="fontawesome/css/v4-shims.min.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+.pay-room{
+  width: 420px;
+}
+.pay-room .form textarea,
+.pay-room .form fieldset,
+.pay-room .form button,
+.pay-room .form input{
+  width: 400px;
+  margin-bottom: 5px;
+}
+    </style>
+  </head>
+  <body dir="rtl">
+
+   <!--start section pay room -->
+   <div class="pay-room " dir="rtl">
+ 
+    <div class="form">
+              <form>
+
+      <input type="text" class="form-control" placeholder="الاسم الاول">
+      <input type="text" class="form-control" placeholder="الاسم الاخير">
+      <input type="text" class="form-control" placeholder="رقم الهاتف " id="phone">
+      <div class="checkPhone"></div>
+      <input type="text" class="form-control" id="inputAddress" placeholder="العنوان">
+    <label for="exampleFormControlSelect1">حدد عدد الغرف </label>
+       <select class="form-control" id="exampleFormControlSelect1" style="width:60px;" >
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+      <div class="form-group">
+            <label for="message-text" class="col-form-label">تلميح:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+           <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label">طريقه الدفع</legend>
+      <div class="col-sm-12 col-md-12">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <label class="form-check-label" for="gridRadios1">كاش في المعرض</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <label class="form-check-label" for="gridRadios2">شيك</label>
+        </div>
+        <div class="form-check disabled">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" >
+          <label class="form-check-label" for="gridRadios3">بنكك</label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <button type="submit" class="btn btn-success btn-lg" id="subForm"> متابعه عملية الشراء</button>
+
+</form>
+
+    </div>
+
+     
+   </div>
+   <!--end section pay room -->
+
+
+
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+                      <form>
+
+      <input type="text" class="form-control" placeholder="الاسم الاول">
+      <input type="text" class="form-control" placeholder="الاسم الاخير">
+      <input type="text" class="form-control" placeholder="رقم الهاتف " id="phone">
+      <div class="checkPhone"></div>
+      <input type="text" class="form-control" id="inputAddress" placeholder="العنوان">
+    <label for="exampleFormControlSelect1">حدد عدد الغرف </label>
+       <select class="form-control" id="exampleFormControlSelect1" style="width:60px;" >
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+      <div class="form-group">
+            <label for="message-text" class="col-form-label">تلميح:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+           <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label">طريقه الدفع</legend>
+      <div class="col-sm-12 col-md-12">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <label class="form-check-label" for="gridRadios1">كاش في المعرض</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <label class="form-check-label" for="gridRadios2">شيك</label>
+        </div>
+        <div class="form-check disabled">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" >
+          <label class="form-check-label" for="gridRadios3">بنكك</label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+</form>
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-success btn-lg" id="subForm" data-dismiss="modal"> متابعه عملية الشراء</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+    <!-- start section footer -->
+    <section class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-xs-3">
+             <a href="www.facebook.com/m3radalseer/"><i class="  fa fa-facebook-square"></i></a>
+             <a href="https://wa.me/249996765580"><i class="  fa fa-whatsapp"></i></a>
+          </div>
+          <div class="col-md-9 col-xs-9">
+
+            <ul>
+              <li><a href="index.html">الرئيسيه</a></li>
+              <li><a href="index.html">غرف نوم</a></li>
+              <li><a href="king.html">غرف ملكيه</a></li>
+              <li><a href="hello-room.html">غرف إستقبال</a></li></ul>
+              <ul>
+              <li><a href="normal.html">غرف عاديه</a></li>
+              <li><a href="contact.html">للتواصل</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; Copyright 2020 by <span><a href="http://www.mostaql.com/u/Mosiba">Abdul Rahman</a></span>
+      </div>
+    </section>
+
+    <!-- start section footer -->
+    
+
+    <!-- start java script -->
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="fontawesome/js/all.min.js"></script>
+    <script type="text/javascript" src="fontawesome/js/fontawesome.min.js"></script>
+    <script type="text/javascript" src="fontawesome/js/v4-shims.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+  </body>
+</html>
