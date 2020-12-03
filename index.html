@@ -446,17 +446,25 @@
                         data-toggle="modal" data-target="#myBankak">
                       <label class="form-check-label" value="bankak" for="gridRadios3">بنكك</label>
                     </div>
+
+                    <button id="submit" type="submit" hidden ></button>
                   </div>
                 </div>
               </fieldset>
             </form>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-success btn-lg">
+            <button type="button" onclick="submit()" class="btn btn-success btn-lg">
               متابعه عملية الشراء</button>
             <button type="button" class="btn btn-danger btn-lg float-left" id="subForm" data-dismiss="modal">
               التراجع</button>
           </div>
+          <script>
+            function submit (){
+              submitBtn = document.getElementById('submit');
+              submitBtn.click();
+            }
+          </script>
         </div>
       </div>
     </div>
