@@ -166,101 +166,101 @@ $(document).ready(function () {
     $("#admin").show(400).css({ position: "absolute", right: "0" });
   });
 
-  $(".custom").click(function () {
-    r = 1;
-    if (r > 0) {
-      cline += 1;
-      love += 1;
+  // $(".custom").click(function () {
+  //   r = 1;
+  //   if (r > 0) {
+  //     cline += 1;
+  //     love += 1;
 
-      $(this).addClass("buttonReactActive");
-      $(".lover").addClass("buttonReactActive");
+  //     $(this).addClass("buttonReactActive");
+  //     $(".lover").addClass("buttonReactActive");
 
-      if ($(".reacome").hasClass("buttonReactActive")) {
-        $(".reacome").removeClass("buttonReactActive");
-        backUs -= 1;
-        cline -= 1;
-      }
-      if ($(".hate").hasClass("buttonReactActive")) {
-        disLike -= 1;
-        cline -= 1;
-        $(".hate").removeClass("buttonReactActive");
-      }
-    }
-    counterUp();
-  });
-  $(".lover").click(function () {
-    r = 1;
-    if ($(this).hasClass("buttonReactActive")) {
-      braek;
-    } else {
-      cline += 1;
-      love += 1;
+  //     if ($(".reacome").hasClass("buttonReactActive")) {
+  //       $(".reacome").removeClass("buttonReactActive");
+  //       backUs -= 1;
+  //       cline -= 1;
+  //     }
+  //     if ($(".hate").hasClass("buttonReactActive")) {
+  //       disLike -= 1;
+  //       cline -= 1;
+  //       $(".hate").removeClass("buttonReactActive");
+  //     }
+  //   }
+  //   counterUp();
+  // });
+  // $(".lover").click(function () {
+  //   r = 1;
+  //   if ($(this).hasClass("buttonReactActive")) {
+  //     braek;
+  //   } else {
+  //     cline += 1;
+  //     love += 1;
 
-      $(this).addClass("buttonReactActive");
-      $(".custom").addClass("buttonReactActive");
+  //     $(this).addClass("buttonReactActive");
+  //     $(".custom").addClass("buttonReactActive");
 
-      if ($(".reacome").hasClass("buttonReactActive")) {
-        $(".reacome").removeClass("buttonReactActive");
-        backUs -= 1;
-        cline -= 1;
-      }
-      if ($(".hate").hasClass("buttonReactActive")) {
-        disLike -= 1;
-        cline -= 1;
-        $(".hate").removeClass("buttonReactActive");
-      }
-    }
-    counterUp();
-  });
+  //     if ($(".reacome").hasClass("buttonReactActive")) {
+  //       $(".reacome").removeClass("buttonReactActive");
+  //       backUs -= 1;
+  //       cline -= 1;
+  //     }
+  //     if ($(".hate").hasClass("buttonReactActive")) {
+  //       disLike -= 1;
+  //       cline -= 1;
+  //       $(".hate").removeClass("buttonReactActive");
+  //     }
+  //   }
+  //   counterUp();
+  // });
 
-  $(".reacome").click(function () {
-    r = 1;
+  // $(".reacome").click(function () {
+  //   r = 1;
 
-    if ($(this).hasClass("buttonReactActive")) {
-      braek;
-    } else {
-      backUs += 1;
-      cline += 1;
-      $(this).addClass("buttonReactActive");
-      $(".custom").addClass("buttonReactActive");
+  //   if ($(this).hasClass("buttonReactActive")) {
+  //     braek;
+  //   } else {
+  //     backUs += 1;
+  //     cline += 1;
+  //     $(this).addClass("buttonReactActive");
+  //     $(".custom").addClass("buttonReactActive");
 
-      if ($(".lover").hasClass("buttonReactActive")) {
-        $(".lover").removeClass("buttonReactActive");
-        love -= 1;
-        cline -= 1;
-      }
-      if ($(".hate").hasClass("buttonReactActive")) {
-        $(".hate").removeClass("buttonReactActive");
-        disLike -= 1;
-        cline -= 1;
-      }
-    }
-    counterUp();
-  });
+  //     if ($(".lover").hasClass("buttonReactActive")) {
+  //       $(".lover").removeClass("buttonReactActive");
+  //       love -= 1;
+  //       cline -= 1;
+  //     }
+  //     if ($(".hate").hasClass("buttonReactActive")) {
+  //       $(".hate").removeClass("buttonReactActive");
+  //       disLike -= 1;
+  //       cline -= 1;
+  //     }
+  //   }
+  //   counterUp();
+  // });
 
-  $(".hate").click(function () {
-    r = 1;
-    if ($(this).hasClass("buttonReactActive")) {
-      braek;
-    } else {
-      cline += 1;
-      disLike += 1;
-      $(this).addClass("buttonReactActive");
-      $(".custom").addClass("buttonReactActive");
+  // $(".hate").click(function () {
+  //   r = 1;
+  //   if ($(this).hasClass("buttonReactActive")) {
+  //     braek;
+  //   } else {
+  //     cline += 1;
+  //     disLike += 1;
+  //     $(this).addClass("buttonReactActive");
+  //     $(".custom").addClass("buttonReactActive");
 
-      if ($(".lover").hasClass("buttonReactActive")) {
-        $(".lover").removeClass("buttonReactActive");
-        love -= 1;
-        cline -= 1;
-      }
-      if ($(".reacome").hasClass("buttonReactActive")) {
-        $(".reacome").removeClass("buttonReactActive");
-        backUs -= 1;
-        cline -= 1;
-      }
-    }
-    counterUp();
-  });
+  //     if ($(".lover").hasClass("buttonReactActive")) {
+  //       $(".lover").removeClass("buttonReactActive");
+  //       love -= 1;
+  //       cline -= 1;
+  //     }
+  //     if ($(".reacome").hasClass("buttonReactActive")) {
+  //       $(".reacome").removeClass("buttonReactActive");
+  //       backUs -= 1;
+  //       cline -= 1;
+  //     }
+  //   }
+  //   counterUp();
+  // });
 
   $(function () {
     loaderPage();
