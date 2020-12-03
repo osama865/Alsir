@@ -348,14 +348,14 @@
           <div class="modal-body">
             <form name="contact" method="POST" data-netlify="true" id="contact-form" class="form">
 
-              <input type="text" class="form-control" placeholder="الاسم الاول">
-              <input type="text" class="form-control" placeholder="الاسم الاخير">
-              <input type="text" class="form-control" placeholder="رقم الهاتف " id="phone">
+              <input type="text" class="form-control" name="first name" placeholder="الاسم الاول">
+              <input type="text" class="form-control" name="last name" placeholder="الاسم الاخير">
+              <input type="text" class="form-control" name="phone" placeholder="رقم الهاتف " id="phone">
               <div class="checkPhone"></div>
-              <input type="text" class="form-control" id="inputAddress" placeholder="العنوان">
+              <input type="text" class="form-control" name="address" id="inputAddress" placeholder="العنوان">
               <label for="exampleFormControlSelect1">حدد عدد الغرف
               </label>
-              <select class="form-control" id="exampleFormControlSelect1">
+              <select class="form-control" name="options" id="exampleFormControlSelect1">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -364,25 +364,25 @@
               </select>
               <div class="form-group">
                 <label for="message-text" class="col-form-label">تلميح:</label>
-                <textarea class="form-control" id="message-text"></textarea>
+                <textarea class="form-control" name="hint" id="message-text"></textarea>
               </div>
               <fieldset class="form-group">
                 <div class="row">
                   <legend class="col-form-label">طريقه الدفع</legend>
                   <div class="col-sm-12 col-md-12">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                      <input class="form-check-input"  type="radio" name="gridRadios" id="gridRadios1" value="option1"
                         style="margin-right: 80px;">
-                      <label class="form-check-label" for="gridRadios1">كاش في المعرض</label>
+                      <label class="form-check-label" name="pay-method-shake" for="gridRadios1">كاش في المعرض</label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                      <label class="form-check-label" for="gridRadios2">شيك</label>
+                      <label class="form-check-label" name="pay-method-kash" for="gridRadios2">شيك</label>
                     </div>
                     <div class="form-check disabled">
                       <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3"
                         data-toggle="modal" data-target="#myBankak">
-                      <label class="form-check-label" for="gridRadios3">بنكك</label>
+                      <label class="form-check-label" name="pay-method-bankak" for="gridRadios3">بنكك</label>
                     </div>
                   </div>
                 </div>
