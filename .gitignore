@@ -1,11 +1,11 @@
-/image
-/fonts
-/fontawesome
-/css/*
-/js/*
+# /image
+# /fonts
+# /fontawesome
+# /css/*
+# /js/*
 
-!css/main.css
-!css/style.css
-!css/stylee.css
+# !css/main.css
+# !css/style.css
+# !css/stylee.css
 
-!js/main.js
+# !js/main.js
