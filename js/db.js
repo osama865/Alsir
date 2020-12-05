@@ -25,6 +25,17 @@ db.collection("recipes").onSnapshot(function (snapshot) {
   });
 });
 
+document.addEventListener(onloadstart, () => {});
+function getData() {
+  db.collection("reactions")
+    .doc("reacts")
+    .onSnapshot(function (doc) {
+      console.log("Current data: ", doc.data());
+      localStorage.setItem("reactions", JSON.stringify(doc.data()));
+      console.log(JSON.parse(localStorage.getItem("reactions")));
+    });
+}
+
 // db.collection("reactions")
 //   .doc("reacts")
 //   .onSnapshot(function (doc) {

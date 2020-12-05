@@ -16,19 +16,22 @@ $(document).ready(function () {
   /* number of like and dislike...*/
 
   let data;
-  let cline, disLike, love, backUs;
-  db.collection("reactions")
-    .doc("reacts")
-    .onSnapshot(function (doc) {
-      console.log("Current data: ", doc.data());
-      data = doc.data();
-      console.log(data.client);
-      cline = data.client;
-      disLike = data.client;
-      love = data.client;
-      backUs = data.client;
-      console.log(love);
-    });
+  let cline = 0,
+    disLike = 0,
+    love = 0,
+    backUs = 0;
+  // db.collection("reactions")
+  //   .doc("reacts")
+  //   .onSnapshot(function (doc) {
+  //     console.log("Current data: ", doc.data());
+  //     data = doc.data();
+  //     console.log(data.client);
+  //     cline = data.client;
+  //     disLike = data.client;
+  //     love = data.client;
+  //     backUs = data.client;
+  //     console.log(love);
+  //   });
 
   var counter;
 
@@ -186,11 +189,11 @@ $(document).ready(function () {
       love += 1;
       let ref = db.collection("reactions").doc("reacts");
       let incrementField = ref.update({
-        love: firebase.firestore.FieldValue.increment(1),
-        client: firebase.firestore.FieldValue.increment(1),
+        love: love,
+        client: cline,
       });
 
-      let choice = "love";
+      let choice = "back";
       localStorage.setItem("choice", choice);
 
       $(this).addClass("buttonReactActive");
@@ -202,8 +205,8 @@ $(document).ready(function () {
         cline += 1;
         let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
-          backUs: firebase.firestore.FieldValue.increment(1),
-          client: firebase.firestore.FieldValue.increment(1),
+          backUs: backUs,
+          client: cline,
         });
 
         let choice = "back";
@@ -214,8 +217,8 @@ $(document).ready(function () {
         cline -= 1;
         let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
-          disLike: firebase.firestore.FieldValue.increment(-1),
-          client: firebase.firestore.FieldValue.increment(-1),
+          disLike: disLike,
+          client: cline,
         });
         let choice = "disLike";
         localStorage.setItem("choice", choice);
@@ -225,18 +228,18 @@ $(document).ready(function () {
     counterUp();
   });
   $(".lover").click(function () {
-    let choice = "love";
-    localStorage.setItem("choice", choice);
     r = 1;
     if ($(this).hasClass("buttonReactActive")) {
       braek;
     } else {
+      let choice = "love";
+      localStorage.setItem("choice", choice);
       cline += 1;
       love += 1;
       let ref = db.collection("reactions").doc("reacts");
       let incrementField = ref.update({
-        love: firebase.firestore.FieldValue.increment(1),
-        client: firebase.firestore.FieldValue.increment(1),
+        love: love,
+        client: cline,
       });
 
       $(this).addClass("buttonReactActive");
@@ -248,8 +251,8 @@ $(document).ready(function () {
         cline += 1;
         let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
-          backUs: firebase.firestore.FieldValue.increment(1),
-          client: firebase.firestore.FieldValue.increment(1),
+          backUs: backUs,
+          client: cline,
         });
         let choice = "back";
         localStorage.setItem("choice", choice);
@@ -259,8 +262,8 @@ $(document).ready(function () {
         cline -= 1;
         let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
-          disLike: firebase.firestore.FieldValue.increment(-1),
-          client: firebase.firestore.FieldValue.increment(-1),
+          disLike: disLike,
+          client: cline,
         });
         let choice = "disLike";
         localStorage.setItem("choice", choice);
@@ -276,16 +279,16 @@ $(document).ready(function () {
     if ($(this).hasClass("buttonReactActive")) {
       braek;
     } else {
+      let choice = "back";
+      localStorage.setItem("choice", choice);
       backUs += 1;
       cline += 1;
 
       let ref = db.collection("reactions").doc("reacts");
       let incrementField = ref.update({
-        backUs: firebase.firestore.FieldValue.increment(1),
-        client: firebase.firestore.FieldValue.increment(1),
+        backUs: backUs,
+        client: cline,
       });
-      let choice = "back";
-      localStorage.setItem("choice", choice);
 
       $(this).addClass("buttonReactActive");
       $(".custom").addClass("buttonReactActive");
@@ -296,8 +299,8 @@ $(document).ready(function () {
         cline -= 1;
         let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
-          love: firebase.firestore.FieldValue.increment(-1),
-          client: firebase.firestore.FieldValue.increment(-1),
+          love: love,
+          client: cline,
         });
       }
       if ($(".hate").hasClass("buttonReactActive")) {
@@ -306,8 +309,8 @@ $(document).ready(function () {
         cline -= 1;
         let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
-          disLike: firebase.firestore.FieldValue.increment(-1),
-          client: firebase.firestore.FieldValue.increment(-1),
+          disLike: disLike,
+          client: cline,
         });
       }
     }
@@ -323,8 +326,8 @@ $(document).ready(function () {
       disLike += 1;
       let ref = db.collection("reactions").doc("reacts");
       let incrementField = ref.update({
-        disLike: firebase.firestore.FieldValue.increment(1),
-        client: firebase.firestore.FieldValue.increment(1),
+        disLike: disLike,
+        client: cline,
       });
       let choice = "disLike";
       localStorage.setItem("choice", choice);
@@ -337,8 +340,8 @@ $(document).ready(function () {
         cline -= 1;
         let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
-          love: firebase.firestore.FieldValue.increment(-1),
-          client: firebase.firestore.FieldValue.increment(-1),
+          love: love,
+          client: cline,
         });
       }
       if ($(".reacome").hasClass("buttonReactActive")) {
@@ -347,8 +350,8 @@ $(document).ready(function () {
         cline -= 1;
         let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
-          backUs: firebase.firestore.FieldValue.increment(-1),
-          client: firebase.firestore.FieldValue.increment(-1),
+          backUs: backUs,
+          client: cline,
         });
       }
     }
