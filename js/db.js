@@ -1,4 +1,4 @@
-db.collection("recipes").onSnapshot(function (snapshot) {
+db.collection("cards").onSnapshot(function (snapshot) {
   snapshot.docChanges().forEach(function (change) {
     switch (change.type) {
       case "added":
