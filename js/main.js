@@ -13,7 +13,6 @@ $(document).ready(function () {
   $(".onabiPrice").text(onabi + " الف");
   $(".sooqPrice").text(sooq + " الف");
   $(".piajoPrice").text(piajo + " الف");
-  /* number of like and dislike...*/
 
   let data;
   let cline = 3,
@@ -22,18 +21,14 @@ $(document).ready(function () {
     backUs = 1;
 
   function preloadFunc() {
-    alert("hey");
     db.collection("reactions")
       .doc("reacts")
       .onSnapshot(function (doc) {
-        console.log("Current data: ", doc.data());
         data = doc.data();
-        console.log(data.client);
         cline = data.client;
         disLike = data.client;
         love = data.client;
         backUs = data.client;
-        console.log(love);
       });
   }
   window.onpaint = preloadFunc();
@@ -47,7 +42,6 @@ $(document).ready(function () {
     $(".backUs").animateNumber({ number: backUs }, 500);
   }
 
-  // Loading page
   var loaderPage = function () {
     $(".fh5co-loader").fadeOut("slow");
   };
@@ -97,7 +91,6 @@ $(document).ready(function () {
       $(".whatsapp").fadeOut(4000);
     }
   });
-  /*check in form sell*/
   $("#phone").on("keyup", function () {
     var phoneNumber = $("#phone").val();
     if (phoneNumber.length < 10) {
@@ -112,7 +105,6 @@ $(document).ready(function () {
         .css({ color: "red", "font-size": "130%", "text-align": "right" });
   });
 
-  /*check in form sell*/
   $("#phonePiajo").on("keyup", function () {
     var phoneNumber = $("#phonePiajo").val();
     if (phoneNumber.length < 10) {
@@ -258,8 +250,6 @@ $(document).ready(function () {
           backUs: backUs,
           client: cline,
         });
-        // let choice = "back";
-        // localStorage.setItem("choice", choice);
       }
       if ($(".hate").hasClass("buttonReactActive")) {
         disLike -= 1;
@@ -269,8 +259,6 @@ $(document).ready(function () {
           disLike: disLike,
           client: cline,
         });
-        // let choice = "disLike";
-        // localStorage.setItem("choice", choice);
         $(".hate").removeClass("buttonReactActive");
       }
     }
@@ -362,7 +350,6 @@ $(document).ready(function () {
     }
     counterUp();
   });
-  console.log(localStorage.getItem("choice"));
 
   function setChoiceToHTML() {
     const clients = document.querySelector(".custom");
@@ -370,16 +357,12 @@ $(document).ready(function () {
     const back = document.querySelector(".reacome");
     const disLike = document.querySelector(".hate");
     if (localStorage.getItem("choice") === "love") {
-      // make love and clients clicked and dislike , back unclicked
-      console.log("working", love);
       love.classList.add("buttonReactActive");
       clients.classList.add("buttonReactActive");
     } else if (localStorage.getItem("choice") === "disLike") {
-      // make dislike and clients clicked and love , back unclicked
       disLike.classList.add("buttonReactActive");
       clients.classList.add("buttonReactActive");
     } else if (localStorage.getItem("choice") === "back") {
-      // make back and clients clicked and love , dislike unclicked
       back.classList.add("buttonReactActive");
       clients.classList.add("buttonReactActive");
     }
