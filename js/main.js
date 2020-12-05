@@ -16,22 +16,27 @@ $(document).ready(function () {
   /* number of like and dislike...*/
 
   let data;
-  let cline = 0,
-    disLike = 0,
-    love = 0,
-    backUs = 0;
-  // db.collection("reactions")
-  //   .doc("reacts")
-  //   .onSnapshot(function (doc) {
-  //     console.log("Current data: ", doc.data());
-  //     data = doc.data();
-  //     console.log(data.client);
-  //     cline = data.client;
-  //     disLike = data.client;
-  //     love = data.client;
-  //     backUs = data.client;
-  //     console.log(love);
-  //   });
+  let cline = 3,
+    disLike = 1,
+    love = 1,
+    backUs = 1;
+
+  function preloadFunc() {
+    alert("hey");
+    db.collection("reactions")
+      .doc("reacts")
+      .onSnapshot(function (doc) {
+        console.log("Current data: ", doc.data());
+        data = doc.data();
+        console.log(data.client);
+        cline = data.client;
+        disLike = data.client;
+        love = data.client;
+        backUs = data.client;
+        console.log(love);
+      });
+  }
+  window.onpaint = preloadFunc();
 
   var counter;
 
@@ -184,7 +189,9 @@ $(document).ready(function () {
 
   $(".custom").click(function () {
     r = 1;
-    if (r > 0) {
+    if ($(this).hasClass("buttonReactActive")) {
+      return;
+    } else {
       cline += 1;
       love += 1;
       let ref = db.collection("reactions").doc("reacts");
@@ -193,16 +200,13 @@ $(document).ready(function () {
         client: cline,
       });
 
-      let choice = "back";
-      localStorage.setItem("choice", choice);
-
       $(this).addClass("buttonReactActive");
       $(".lover").addClass("buttonReactActive");
 
       if ($(".reacome").hasClass("buttonReactActive")) {
         $(".reacome").removeClass("buttonReactActive");
-        backUs += 1;
-        cline += 1;
+        backUs -= 1;
+        cline -= 1;
         let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
           backUs: backUs,
@@ -228,12 +232,12 @@ $(document).ready(function () {
     counterUp();
   });
   $(".lover").click(function () {
+    let choice = "love";
+    localStorage.setItem("choice", choice);
     r = 1;
     if ($(this).hasClass("buttonReactActive")) {
       braek;
     } else {
-      let choice = "love";
-      localStorage.setItem("choice", choice);
       cline += 1;
       love += 1;
       let ref = db.collection("reactions").doc("reacts");
@@ -247,15 +251,15 @@ $(document).ready(function () {
 
       if ($(".reacome").hasClass("buttonReactActive")) {
         $(".reacome").removeClass("buttonReactActive");
-        backUs += 1;
-        cline += 1;
+        backUs -= 1;
+        cline -= 1;
         let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
           backUs: backUs,
           client: cline,
         });
-        let choice = "back";
-        localStorage.setItem("choice", choice);
+        // let choice = "back";
+        // localStorage.setItem("choice", choice);
       }
       if ($(".hate").hasClass("buttonReactActive")) {
         disLike -= 1;
@@ -265,8 +269,8 @@ $(document).ready(function () {
           disLike: disLike,
           client: cline,
         });
-        let choice = "disLike";
-        localStorage.setItem("choice", choice);
+        // let choice = "disLike";
+        // localStorage.setItem("choice", choice);
         $(".hate").removeClass("buttonReactActive");
       }
     }
@@ -274,13 +278,13 @@ $(document).ready(function () {
   });
 
   $(".reacome").click(function () {
+    let choice = "back";
+    localStorage.setItem("choice", choice);
     r = 1;
 
     if ($(this).hasClass("buttonReactActive")) {
       braek;
     } else {
-      let choice = "back";
-      localStorage.setItem("choice", choice);
       backUs += 1;
       cline += 1;
 
@@ -318,6 +322,8 @@ $(document).ready(function () {
   });
 
   $(".hate").click(function () {
+    let choice = "disLike";
+    localStorage.setItem("choice", choice);
     r = 1;
     if ($(this).hasClass("buttonReactActive")) {
       braek;
@@ -329,8 +335,7 @@ $(document).ready(function () {
         disLike: disLike,
         client: cline,
       });
-      let choice = "disLike";
-      localStorage.setItem("choice", choice);
+
       $(this).addClass("buttonReactActive");
       $(".custom").addClass("buttonReactActive");
 
