@@ -14,11 +14,24 @@ $(document).ready(function () {
   $(".sooqPrice").text(sooq + " الف");
   $(".piajoPrice").text(piajo + " الف");
   /* number of like and dislike...*/
-  var cline = 0,
-    disLike = 0,
-    love = 0,
-    backUs = 0;
+
+  let data;
+  let cline, disLike, love, backUs;
+  db.collection("reactions")
+    .doc("reacts")
+    .onSnapshot(function (doc) {
+      console.log("Current data: ", doc.data());
+      data = doc.data();
+      console.log(data.client);
+      cline = data.client;
+      disLike = data.client;
+      love = data.client;
+      backUs = data.client;
+      console.log(love);
+    });
+
   var counter;
+
   function counterUp() {
     $(".love").animateNumber({ number: love }, 500);
     $(".cline").animateNumber({ number: cline }, 500);
@@ -166,103 +179,206 @@ $(document).ready(function () {
     $("#admin").show(400).css({ position: "absolute", right: "0" });
   });
 
-  // $(".custom").click(function () {
-  //   r = 1;
-  //   if (r > 0) {
-  //     cline += 1;
-  //     love += 1;
+  $(".custom").click(function () {
+    r = 1;
+    if (r > 0) {
+      cline += 1;
+      love += 1;
+      let ref = db.collection("reactions").doc("reacts");
+      let incrementField = ref.update({
+        love: firebase.firestore.FieldValue.increment(1),
+        client: firebase.firestore.FieldValue.increment(1),
+      });
 
-  //     $(this).addClass("buttonReactActive");
-  //     $(".lover").addClass("buttonReactActive");
+      let choice = "love";
+      localStorage.setItem("choice", choice);
 
-  //     if ($(".reacome").hasClass("buttonReactActive")) {
-  //       $(".reacome").removeClass("buttonReactActive");
-  //       backUs -= 1;
-  //       cline -= 1;
-  //     }
-  //     if ($(".hate").hasClass("buttonReactActive")) {
-  //       disLike -= 1;
-  //       cline -= 1;
-  //       $(".hate").removeClass("buttonReactActive");
-  //     }
-  //   }
-  //   counterUp();
-  // });
-  // $(".lover").click(function () {
-  //   r = 1;
-  //   if ($(this).hasClass("buttonReactActive")) {
-  //     braek;
-  //   } else {
-  //     cline += 1;
-  //     love += 1;
+      $(this).addClass("buttonReactActive");
+      $(".lover").addClass("buttonReactActive");
 
-  //     $(this).addClass("buttonReactActive");
-  //     $(".custom").addClass("buttonReactActive");
+      if ($(".reacome").hasClass("buttonReactActive")) {
+        $(".reacome").removeClass("buttonReactActive");
+        backUs += 1;
+        cline += 1;
+        let ref = db.collection("reactions").doc("reacts");
+        let incrementField = ref.update({
+          backUs: firebase.firestore.FieldValue.increment(1),
+          client: firebase.firestore.FieldValue.increment(1),
+        });
 
-  //     if ($(".reacome").hasClass("buttonReactActive")) {
-  //       $(".reacome").removeClass("buttonReactActive");
-  //       backUs -= 1;
-  //       cline -= 1;
-  //     }
-  //     if ($(".hate").hasClass("buttonReactActive")) {
-  //       disLike -= 1;
-  //       cline -= 1;
-  //       $(".hate").removeClass("buttonReactActive");
-  //     }
-  //   }
-  //   counterUp();
-  // });
+        let choice = "back";
+        localStorage.setItem("choice", choice);
+      }
+      if ($(".hate").hasClass("buttonReactActive")) {
+        disLike -= 1;
+        cline -= 1;
+        let ref = db.collection("reactions").doc("reacts");
+        let incrementField = ref.update({
+          disLike: firebase.firestore.FieldValue.increment(-1),
+          client: firebase.firestore.FieldValue.increment(-1),
+        });
+        let choice = "disLike";
+        localStorage.setItem("choice", choice);
+        $(".hate").removeClass("buttonReactActive");
+      }
+    }
+    counterUp();
+  });
+  $(".lover").click(function () {
+    let choice = "love";
+    localStorage.setItem("choice", choice);
+    r = 1;
+    if ($(this).hasClass("buttonReactActive")) {
+      braek;
+    } else {
+      cline += 1;
+      love += 1;
+      let ref = db.collection("reactions").doc("reacts");
+      let incrementField = ref.update({
+        love: firebase.firestore.FieldValue.increment(1),
+        client: firebase.firestore.FieldValue.increment(1),
+      });
 
-  // $(".reacome").click(function () {
-  //   r = 1;
+      $(this).addClass("buttonReactActive");
+      $(".custom").addClass("buttonReactActive");
 
-  //   if ($(this).hasClass("buttonReactActive")) {
-  //     braek;
-  //   } else {
-  //     backUs += 1;
-  //     cline += 1;
-  //     $(this).addClass("buttonReactActive");
-  //     $(".custom").addClass("buttonReactActive");
+      if ($(".reacome").hasClass("buttonReactActive")) {
+        $(".reacome").removeClass("buttonReactActive");
+        backUs += 1;
+        cline += 1;
+        let ref = db.collection("reactions").doc("reacts");
+        let incrementField = ref.update({
+          backUs: firebase.firestore.FieldValue.increment(1),
+          client: firebase.firestore.FieldValue.increment(1),
+        });
+        let choice = "back";
+        localStorage.setItem("choice", choice);
+      }
+      if ($(".hate").hasClass("buttonReactActive")) {
+        disLike -= 1;
+        cline -= 1;
+        let ref = db.collection("reactions").doc("reacts");
+        let incrementField = ref.update({
+          disLike: firebase.firestore.FieldValue.increment(-1),
+          client: firebase.firestore.FieldValue.increment(-1),
+        });
+        let choice = "disLike";
+        localStorage.setItem("choice", choice);
+        $(".hate").removeClass("buttonReactActive");
+      }
+    }
+    counterUp();
+  });
 
-  //     if ($(".lover").hasClass("buttonReactActive")) {
-  //       $(".lover").removeClass("buttonReactActive");
-  //       love -= 1;
-  //       cline -= 1;
-  //     }
-  //     if ($(".hate").hasClass("buttonReactActive")) {
-  //       $(".hate").removeClass("buttonReactActive");
-  //       disLike -= 1;
-  //       cline -= 1;
-  //     }
-  //   }
-  //   counterUp();
-  // });
+  $(".reacome").click(function () {
+    r = 1;
 
-  // $(".hate").click(function () {
-  //   r = 1;
-  //   if ($(this).hasClass("buttonReactActive")) {
-  //     braek;
-  //   } else {
-  //     cline += 1;
-  //     disLike += 1;
-  //     $(this).addClass("buttonReactActive");
-  //     $(".custom").addClass("buttonReactActive");
+    if ($(this).hasClass("buttonReactActive")) {
+      braek;
+    } else {
+      backUs += 1;
+      cline += 1;
 
-  //     if ($(".lover").hasClass("buttonReactActive")) {
-  //       $(".lover").removeClass("buttonReactActive");
-  //       love -= 1;
-  //       cline -= 1;
-  //     }
-  //     if ($(".reacome").hasClass("buttonReactActive")) {
-  //       $(".reacome").removeClass("buttonReactActive");
-  //       backUs -= 1;
-  //       cline -= 1;
-  //     }
-  //   }
-  //   counterUp();
-  // });
+      let ref = db.collection("reactions").doc("reacts");
+      let incrementField = ref.update({
+        backUs: firebase.firestore.FieldValue.increment(1),
+        client: firebase.firestore.FieldValue.increment(1),
+      });
+      let choice = "back";
+      localStorage.setItem("choice", choice);
+
+      $(this).addClass("buttonReactActive");
+      $(".custom").addClass("buttonReactActive");
+
+      if ($(".lover").hasClass("buttonReactActive")) {
+        $(".lover").removeClass("buttonReactActive");
+        love -= 1;
+        cline -= 1;
+        let ref = db.collection("reactions").doc("reacts");
+        let incrementField = ref.update({
+          love: firebase.firestore.FieldValue.increment(-1),
+          client: firebase.firestore.FieldValue.increment(-1),
+        });
+      }
+      if ($(".hate").hasClass("buttonReactActive")) {
+        $(".hate").removeClass("buttonReactActive");
+        disLike -= 1;
+        cline -= 1;
+        let ref = db.collection("reactions").doc("reacts");
+        let incrementField = ref.update({
+          disLike: firebase.firestore.FieldValue.increment(-1),
+          client: firebase.firestore.FieldValue.increment(-1),
+        });
+      }
+    }
+    counterUp();
+  });
+
+  $(".hate").click(function () {
+    r = 1;
+    if ($(this).hasClass("buttonReactActive")) {
+      braek;
+    } else {
+      cline += 1;
+      disLike += 1;
+      let ref = db.collection("reactions").doc("reacts");
+      let incrementField = ref.update({
+        disLike: firebase.firestore.FieldValue.increment(1),
+        client: firebase.firestore.FieldValue.increment(1),
+      });
+      let choice = "disLike";
+      localStorage.setItem("choice", choice);
+      $(this).addClass("buttonReactActive");
+      $(".custom").addClass("buttonReactActive");
+
+      if ($(".lover").hasClass("buttonReactActive")) {
+        $(".lover").removeClass("buttonReactActive");
+        love -= 1;
+        cline -= 1;
+        let ref = db.collection("reactions").doc("reacts");
+        let incrementField = ref.update({
+          love: firebase.firestore.FieldValue.increment(-1),
+          client: firebase.firestore.FieldValue.increment(-1),
+        });
+      }
+      if ($(".reacome").hasClass("buttonReactActive")) {
+        $(".reacome").removeClass("buttonReactActive");
+        backUs -= 1;
+        cline -= 1;
+        let ref = db.collection("reactions").doc("reacts");
+        let incrementField = ref.update({
+          backUs: firebase.firestore.FieldValue.increment(-1),
+          client: firebase.firestore.FieldValue.increment(-1),
+        });
+      }
+    }
+    counterUp();
+  });
+  console.log(localStorage.getItem("choice"));
+
+  function setChoiceToHTML() {
+    const clients = document.querySelector(".custom");
+    const love = document.querySelector(".lover");
+    const back = document.querySelector(".reacome");
+    const disLike = document.querySelector(".hate");
+    if (localStorage.getItem("choice") === "love") {
+      // make love and clients clicked and dislike , back unclicked
+      console.log("working", love);
+      love.classList.add("buttonReactActive");
+      clients.classList.add("buttonReactActive");
+    } else if (localStorage.getItem("choice") === "disLike") {
+      // make dislike and clients clicked and love , back unclicked
+      disLike.classList.add("buttonReactActive");
+      clients.classList.add("buttonReactActive");
+    } else if (localStorage.getItem("choice") === "back") {
+      // make back and clients clicked and love , dislike unclicked
+      back.classList.add("buttonReactActive");
+      clients.classList.add("buttonReactActive");
+    }
+  }
 
   $(function () {
+    setChoiceToHTML();
     loaderPage();
   });
 });
