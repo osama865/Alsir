@@ -226,16 +226,17 @@ font-size: 18px;
 	bottom: 100px;
 }
 .carousel-inner .carousel-caption >p{
-	font-size: 28px;
-	font-style: italic;
-
+	font-size: 34px;
+	font-style: bold;
+	color:#fff;
 	word-spacing: 10px;
 
 }
 .carousel-inner .carousel-caption >h3{
 	margin-bottom: 20px;
-	font-size: 40px;
+	font-size: 45px;
 	font-weight: bold;
+	color: #fff;
 
 }
 .carousel-inner > .item > img, .carousel-inner > .item > a > img{
@@ -431,16 +432,16 @@ font-size: 18px;
 	width: 180px
  }
 .card .card-body >p{
-   font-size: 20px;
+   font-size: 24px;
    line-height: 2;
-   font-weight: 500;
+   font-weight: 600;
        min-height: 120px;
    margin-bottom: 10px;
  }
 .card .card-body >h5{
 	color: #444;
-	font-weight: bold;
-	font-size: 28px;
+	font-weight: 900;
+	font-size: 32px;
 	margin-top: 20px;
 }
 /* start room store */
@@ -541,6 +542,7 @@ font-size: 18px;
 .footer div a{
 	margin-left: 20px;
 	font-size: 26px;
+	color: #fff;
 
 
 }
@@ -808,7 +810,7 @@ font-size: 18px;
     text-align: center;
     padding-right: 10px;
         font-weight: 600;
-    font-size: 20px;
+    font-size: 25px;
 }
  .ftco-section p a{
  	color: #00bd56;
@@ -816,8 +818,10 @@ font-size: 18px;
     background-color: transparent;
  }
 .heading-section  {
-  font-size: 30px;
-  font-weight: 800; }
+  font-size: 45px;
+  font-weight: 900;
+  letter-spacing: 3px; 
+}
   .room-store .payPos{
   	display: none;
   	text-align: right;
@@ -893,7 +897,9 @@ font-size: 18px;
 .comunitRoom .comunitStyle ol> li{
 	color: #000;
 	padding-right: 20px;
-	font-size: 20px;
+	font-size: 30px;
+	line-height: 1.5;
+	letter-spacing: 2px;
 	font-weight: 600;
 	list-style: none;
 	width: 100%;
@@ -1150,4 +1156,22 @@ font-size: 18px;
 }
 .carHeader .canIneer button{
 	font-size: 40px;
+}
+.facePrice{
+	padding-top: 40px;
+	padding-bottom: 40px;	
+}
+.facePrice h1{
+	font-weight: 900;
+	font-size: 40px;
+	margin-bottom: 40px;
+}
+.facePrice h3{
+	font-size: 40px;
+	font-weight: 700;
+	letter-spacing: 4px;
+}
+.facePrice span{
+	font-weight: bold;
+	font-size: 30px;
 }
