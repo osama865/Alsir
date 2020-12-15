@@ -21,10 +21,10 @@ $(document).ready(function () {
   /* number of like and dislike...*/
 
   let data;
-  let cline = 5430,
-    disLike = 100,
-    love = 34800,
-    backUs = 19400;
+  let cline = 27,
+    disLike = 0,
+    love = 23,
+    backUs = 4;
   db.collection("reactions")
     .doc("reacts")
     .onSnapshot(function (doc) {
