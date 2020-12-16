@@ -25,7 +25,7 @@ $(document).ready(function () {
     disLike = 1,
     love = 54,
     backUs = 21;
-/*
+
   db.collection("reactions")
     .doc("reacts")
     .onSnapshot(function (doc) {
@@ -38,7 +38,7 @@ $(document).ready(function () {
       backUs = data.client;
       console.log(love);
     });
-*/
+
   var count=1;
 
   function counterUp() {
