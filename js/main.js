@@ -2,6 +2,19 @@ $(document).ready(function () {
   new WOW().init();
 
 
+var firebaseConfig = {
+      apiKey: "AIzaSyA9pMcUIE_lJhHqPyX1BDKxB6Rrc6q_r90",
+      authDomain: "pwa-os.firebaseapp.com",
+      databaseURL: "https://pwa-os.firebaseio.com",
+      projectId: "pwa-os",
+      storageBucket: "pwa-os.appspot.com",
+      messagingSenderId: "61929959554",
+      appId: "1:61929959554:web:3d0f8ace7a40097f75449b"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
   var king = 110,
     hello = 60,
     onabi = 110,
