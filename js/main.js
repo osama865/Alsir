@@ -21,10 +21,11 @@ $(document).ready(function () {
   /* number of like and dislike...*/
 
   let data;
-  let cline = 27,
-    disLike = 0,
-    love = 23,
-    backUs = 4;
+  let cline = 76,
+    disLike = 1,
+    love = 54,
+    backUs = 21;
+/*
   db.collection("reactions")
     .doc("reacts")
     .onSnapshot(function (doc) {
@@ -37,7 +38,7 @@ $(document).ready(function () {
       backUs = data.client;
       console.log(love);
     });
-
+*/
   var count=1;
 
   function counterUp() {
