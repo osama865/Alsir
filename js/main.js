@@ -429,7 +429,7 @@ window.location.href = "arood.html";
 
 
   $(function () {
-    //setChoiceToHTML();
+    setChoiceToHTML();
     loaderPage();
   });
 });
