@@ -434,8 +434,8 @@ counterUp();
     }
   };
 
-  $("#test").click(function(){
-window.location.href = "arood.html";
+  $("#submitForm").click(function(){
+window.location.href = "tel:/0118839796";
   });
 
 
