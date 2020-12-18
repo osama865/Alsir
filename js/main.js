@@ -435,11 +435,7 @@ counterUp();
   };
 
   $("#submitForm").click(function(){
-<<<<<<< HEAD
 window.location.href = "tel://0118839796";
-=======
-window.location.href = "tel:/0118839796";
->>>>>>> 2b62b541f77792c314536a6f4970478c9f41680d
   });
 
 
