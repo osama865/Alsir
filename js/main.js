@@ -20,7 +20,7 @@ var firebaseConfig = {
     onabi = 110,
     sahaab = 150,
     normal = 95,
-    piajo = 820,
+    piajo = 880,
     sooq = 160;
     single = king-10;
   $(".normalPrice").text(normal + " الف");
@@ -35,8 +35,8 @@ var firebaseConfig = {
 
   let data;
   let disLike = 1,
-    love = 271,
-    backUs = 165, 
+    love = 473,
+    backUs = 295, 
     cline = disLike + backUs + love;
 
   db.collection("reactions")
