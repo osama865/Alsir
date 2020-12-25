@@ -35,11 +35,8 @@ var firebaseConfig = {
 
   let data;
   let disLike = 4,
-    love = 571,
-    backUs = 255, 
-    let disLike = 1,
-    love = 543,
-    backUs = 325,
+    love = 743,
+    backUs = 385, 
     cline = disLike + backUs + love;
 
   db.collection("reactions")
@@ -168,8 +165,7 @@ var firebaseConfig = {
       }, 4000);
       $(".message").fadeIn(1000);
     } else $(".message").fadeOut(200);
-  });
-  $("button[data-dismiss='message']").click(function(){
+  });$("button[data-dismiss='message']").click(function(){
 $(".message").remove();
 });
   
