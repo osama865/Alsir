@@ -34,9 +34,9 @@ var firebaseConfig = {
   /* number of like and dislike...*/
 
   let data;
-  let disLike = 1,
-    love = 271,
-    backUs = 165, 
+  let disLike = 4,
+    love = 571,
+    backUs = 255, 
     cline = disLike + backUs + love;
 
   db.collection("reactions")
@@ -165,7 +165,8 @@ var firebaseConfig = {
       }, 4000);
       $(".message").fadeIn(1000);
     } else $(".message").fadeOut(200);
-  });$("button[data-dismiss='message']").click(function(){
+  });
+  $("button[data-dismiss='message']").click(function(){
 $(".message").remove();
 });
   
@@ -435,11 +436,7 @@ counterUp();
   };
 
   $("#submitForm").click(function(){
-<<<<<<< HEAD
 window.location.href = "tel://0118839796";
-=======
-window.location.href = "tel:/0118839796";
->>>>>>> 2b62b541f77792c314536a6f4970478c9f41680d
   });
 
 

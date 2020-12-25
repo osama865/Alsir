@@ -16,7 +16,6 @@
 }
 .buttonReactActive{
 	color: blue;
-	font-size: 150%;
 }
 .inmatFade{display: none;}
 .posRelat{position: relative;}
@@ -1166,7 +1165,7 @@ font-size: 18px;
 	font-size: 40px;
 	margin-bottom: 40px;
 }
-.facePrice h3{
+.facePrice h3
 	font-size: 40px;
 	font-weight: 700;
 	letter-spacing: 4px;
@@ -1174,4 +1173,28 @@ font-size: 18px;
 .facePrice span{
 	font-weight: bold;
 	font-size: 30px;
+}
+
+/*----------------------------------------------------------*/
+.musap{
+	font-size: 30px;
+}
+@media (min-width: 300px) {
+	.musap{
+		font-size: 18px;
+	}
+  header {
+    display: none;
+     }
+     .navbar{
+     	margin-top: 0;
+     }
+     .message{
+     	padding: 8px;
+     	right: 10px;
+     	font-size: 18px;
+     }
+     .mulal{
+     	font-size: 20px;
+     }
 }
