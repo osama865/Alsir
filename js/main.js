@@ -34,15 +34,12 @@ var firebaseConfig = {
   /* number of like and dislike...*/
 
   let data;
-<<<<<<< HEAD
   let disLike = 4,
     love = 571,
     backUs = 255, 
-=======
-  let disLike = 1,
+    let disLike = 1,
     love = 543,
-    backUs = 325, 
->>>>>>> d8ac92d0dd1898b031e1c9f853c3f23f0e2307ec
+    backUs = 325,
     cline = disLike + backUs + love;
 
   db.collection("reactions")
