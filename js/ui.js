@@ -1,8 +1,8 @@
 const cardContainer = document.querySelector("#rooms-c");
 
 var client = contentful.createClient({
-  space: "18yoosog20ju",
-  accessToken: "0I3QCVzsfU2UZolz1Fp3xA8LG8w5oyiXkBGHapaR8JI",
+  space: process.env.SPACE_ID,
+  accessToken: process.env.ACCESS_TOKEN,
 });
 
 const addCard = (card, id) => {
