@@ -1,20 +1,6 @@
 $(document).ready(function () {
   new WOW().init();
 
-
-var firebaseConfig = {
-      apiKey: "AIzaSyA9pMcUIE_lJhHqPyX1BDKxB6Rrc6q_r90",
-      authDomain: "pwa-os.firebaseapp.com",
-      databaseURL: "https://pwa-os.firebaseio.com",
-      projectId: "pwa-os",
-      storageBucket: "pwa-os.appspot.com",
-      messagingSenderId: "61929959554",
-      appId: "1:61929959554:web:3d0f8ace7a40097f75449b"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-
   var king = 110,
     hello = 60,
     onabi = 110,
@@ -22,7 +8,7 @@ var firebaseConfig = {
     normal = 95,
     piajo = 880,
     sooq = 160;
-    single = king-10;
+  single = king - 10;
   $(".normalPrice").text(normal + " الف");
   $(".kingPrice").text(king + " الف");
   $(".helloPrice").text(hello + " الف");
@@ -36,23 +22,10 @@ var firebaseConfig = {
   let data;
   let disLike = 4,
     love = 743,
-    backUs = 385, 
+    backUs = 385,
     cline = disLike + backUs + love;
 
-  db.collection("reactions")
-    .doc("reacts")
-    .onSnapshot(function (doc) {
-      console.log("Current data: ", doc.data());
-      data = doc.data();
-      console.log(data.client);
-      cline = data.client;
-      disLike = data.client;
-      love = data.client;
-      backUs = data.client;
-      console.log(love);
-    });
-
-  var count=1;
+  var count = 1;
 
   function counterUp() {
     $(".love").animateNumber({ number: love }, 500);
@@ -165,10 +138,11 @@ var firebaseConfig = {
       }, 4000);
       $(".message").fadeIn(1000);
     } else $(".message").fadeOut(200);
-  });$("button[data-dismiss='message']").click(function(){
-$(".message").remove();
-});
-  
+  });
+  $("button[data-dismiss='message']").click(function () {
+    $(".message").remove();
+  });
+
   $(".comunitItemKing").click(function () {
     $(".comunitKing").slideToggle(500, function () {
       $(".comunitNormal , .comunitHello , .comunitsingle , .comunitSahaab").hide(500);
@@ -190,12 +164,11 @@ $(".message").remove();
       $(".comunitNormal , .comunitHello , .comunitKing , .comunitSahaab").hide(500);
     });
   });
-    $(".comunitsahaab").click(function () {
+  $(".comunitsahaab").click(function () {
     $(".comunitSahaab").slideToggle(500, function () {
       $(".comunitNormal , .comunitHello , .comunitsingle , .comunitKing").hide(500);
     });
   });
-  
 
   $(window).scroll(function () {
     var sc = $(this).scrollTop();
@@ -217,199 +190,128 @@ $(".message").remove();
     $("#admin").show(400).css({ position: "absolute", right: "0" });
   });
 
-
-
-$(".custom").click(function(){
-  r=1;
-if ($(this).hasClass("buttonReactActive")) {braek;}else
-{
-  cline+=1;
-      love+=1;
-       let ref = db.collection("reactions").doc("reacts");
-      let incrementField = ref.update({
-        love: love,
-        client: cline,
-      });
+  $(".custom").click(function () {
+    r = 1;
+    if ($(this).hasClass("buttonReactActive")) {
+      braek;
+    } else {
+      cline += 1;
+      love += 1;
 
       let choice = "back";
       localStorage.setItem("choice", choice);
 
-    $(this).addClass("buttonReactActive");
-  $(".lover").addClass("buttonReactActive");
+      $(this).addClass("buttonReactActive");
+      $(".lover").addClass("buttonReactActive");
 
-  if ($(".reacome").hasClass("buttonReactActive")) {
-    $(".reacome").removeClass("buttonReactActive");
-    backUs-=1;
-    cline-=1;
-     let ref = db.collection("reactions").doc("reacts");
-        let incrementField = ref.update({
-          backUs: backUs,
-          client: cline,
-        });
+      if ($(".reacome").hasClass("buttonReactActive")) {
+        $(".reacome").removeClass("buttonReactActive");
+        backUs -= 1;
+        cline -= 1;
 
         let choice = "back";
         localStorage.setItem("choice", choice);
-  };
-  if ($(".hate").hasClass("buttonReactActive")) {
-    disLike-=1;
-    cline-=1;
-    let ref = db.collection("reactions").doc("reacts");
-        let incrementField = ref.update({
-          disLike: disLike,
-          client: cline,
-        });
+      }
+      if ($(".hate").hasClass("buttonReactActive")) {
+        disLike -= 1;
+        cline -= 1;
+
         let choice = "disLike";
         localStorage.setItem("choice", choice);
-    $(".hate").removeClass("buttonReactActive");
-  };
-};
-counterUp();
-
-});
-$(".lover").click(function(){
-  r=1;
-if ($(this).hasClass("buttonReactActive")) {
-    braek;
-  }else
-{
- let choice = "love";
+        $(".hate").removeClass("buttonReactActive");
+      }
+    }
+    counterUp();
+  });
+  $(".lover").click(function () {
+    r = 1;
+    if ($(this).hasClass("buttonReactActive")) {
+      braek;
+    } else {
+      let choice = "love";
       localStorage.setItem("choice", choice);
 
-  cline+=1;
-      love+=1;
+      cline += 1;
+      love += 1;
 
-       let ref = db.collection("reactions").doc("reacts");
-      let incrementField = ref.update({
-        love: love,
-        client: cline,
-      });
+      $(this).addClass("buttonReactActive");
+      $(".custom").addClass("buttonReactActive");
 
+      if ($(".reacome").hasClass("buttonReactActive")) {
+        $(".reacome").removeClass("buttonReactActive");
+        backUs -= 1;
+        cline -= 1;
 
-    $(this).addClass("buttonReactActive");
-  $(".custom").addClass("buttonReactActive");
-
-  if ($(".reacome").hasClass("buttonReactActive")) {
-    $(".reacome").removeClass("buttonReactActive");
-    backUs-=1;
-    cline-=1;
-    let ref = db.collection("reactions").doc("reacts");
-        let incrementField = ref.update({
-          backUs: backUs,
-          client: cline,
-        });
         let choice = "back";
         localStorage.setItem("choice", choice);
-  };
-  if ($(".hate").hasClass("buttonReactActive")) {
-    disLike-=1;
-    cline-=1;
-    let ref = db.collection("reactions").doc("reacts");
-        let incrementField = ref.update({
-          disLike: disLike,
-          client: cline,
-        });
+      }
+      if ($(".hate").hasClass("buttonReactActive")) {
+        disLike -= 1;
+        cline -= 1;
+
         let choice = "disLike";
         localStorage.setItem("choice", choice);
-    $(".hate").removeClass("buttonReactActive");
-  };
-};
-counterUp();
+        $(".hate").removeClass("buttonReactActive");
+      }
+    }
+    counterUp();
+  });
 
-});
+  $(".reacome").click(function () {
+    r = 1;
 
-
-$(".reacome").click(function(){
-  r=1;
-
-  if ($(this).hasClass("buttonReactActive")) {
-    braek;
-  }else
-  {
- let choice = "back";
+    if ($(this).hasClass("buttonReactActive")) {
+      braek;
+    } else {
+      let choice = "back";
       localStorage.setItem("choice", choice);
 
-    backUs+=1;
-  cline+=1;
+      backUs += 1;
+      cline += 1;
 
-      let ref = db.collection("reactions").doc("reacts");
-      let incrementField = ref.update({
-        backUs: backUs,
-        client: cline,
-      });
+      $(this).addClass("buttonReactActive");
+      $(".custom").addClass("buttonReactActive");
 
-    $(this).addClass("buttonReactActive");
-  $(".custom").addClass("buttonReactActive");
+      if ($(".lover").hasClass("buttonReactActive")) {
+        $(".lover").removeClass("buttonReactActive");
+        love -= 1;
+        cline -= 1;
+      }
+      if ($(".hate").hasClass("buttonReactActive")) {
+        $(".hate").removeClass("buttonReactActive");
+        disLike -= 1;
+        cline -= 1;
+      }
+    }
+    counterUp();
+  });
 
-  if ($(".lover").hasClass("buttonReactActive")) {
-    $(".lover").removeClass("buttonReactActive");
-    love-=1;
-    cline-=1;
-    let ref = db.collection("reactions").doc("reacts");
-        let incrementField = ref.update({
-          love: love,
-          client: cline,
-        });
-  };
-  if ($(".hate").hasClass("buttonReactActive")) {
-    $(".hate").removeClass("buttonReactActive");
-    disLike-=1;
-    cline-=1;
-     let ref = db.collection("reactions").doc("reacts");
-        let incrementField = ref.update({
-          disLike: disLike,
-          client: cline,
-        });
-  };
-};
-counterUp();
-});
+  $(".hate").click(function () {
+    r = 1;
+    if ($(this).hasClass("buttonReactActive")) {
+      braek;
+    } else {
+      cline += 1;
+      disLike += 1;
 
-$(".hate").click(function(){
-
-  r=1;
-if ($(this).hasClass("buttonReactActive")) {
-    braek;
-  }else
-  {
-
-
-cline+=1;
-disLike+=1;
- let ref = db.collection("reactions").doc("reacts");
-      let incrementField = ref.update({
-        disLike: disLike,
-        client: cline,
-      });
       let choice = "disLike";
       localStorage.setItem("choice", choice);
-$(this).addClass("buttonReactActive");
-$(".custom").addClass("buttonReactActive");
+      $(this).addClass("buttonReactActive");
+      $(".custom").addClass("buttonReactActive");
 
-if ($(".lover").hasClass("buttonReactActive")) {
-$(".lover").removeClass("buttonReactActive");
-love-=1;
-cline-=1;
- let ref = db.collection("reactions").doc("reacts");
-        let incrementField = ref.update({
-          love: love,
-          client: cline,
-        });
-};
-if ($(".reacome").hasClass("buttonReactActive")) {
-$(".reacome").removeClass("buttonReactActive");
-backUs-=1;
-    cline-=1;
-      let ref = db.collection("reactions").doc("reacts");
-        let incrementField = ref.update({
-          backUs: backUs,
-          client: cline,
-        });
-
-  };
-  };
-counterUp();
-
-});
+      if ($(".lover").hasClass("buttonReactActive")) {
+        $(".lover").removeClass("buttonReactActive");
+        love -= 1;
+        cline -= 1;
+      }
+      if ($(".reacome").hasClass("buttonReactActive")) {
+        $(".reacome").removeClass("buttonReactActive");
+        backUs -= 1;
+        cline -= 1;
+      }
+    }
+    counterUp();
+  });
 
   console.log(localStorage.getItem("choice"));
 
@@ -432,24 +334,19 @@ counterUp();
       back.classList.add("buttonReactActive");
       clients.classList.add("buttonReactActive");
     }
-  };
+  }
 
-  $("#submitForm").click(function(){
-window.location.href = "tel://0118839796";
+  $("#submitForm").click(function () {
+    window.location.href = "tel://0118839796";
   });
-
-
-
 
   $(function () {
     setChoiceToHTML();
     loaderPage();
   });
-// -----------------The Wheel--------------------------
+  // -----------------The Wheel--------------------------
 
- $("a").click(function(){
-  alert("hfhh");
- })
-
-
+  $("a").click(function () {
+    alert("hfhh");
+  });
 });

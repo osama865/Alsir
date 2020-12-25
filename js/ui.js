@@ -4,38 +4,31 @@ var client = contentful.createClient({
   space: "18yoosog20ju",
   accessToken: "0I3QCVzsfU2UZolz1Fp3xA8LG8w5oyiXkBGHapaR8JI",
 });
-client.getEntries().then(function (entries) {
-  // log the title for all the entries that have it
-  console.log(entries);
-  entries.items.forEach(function (entry) {
-    console.log(entry);
-    if (entry) {
-      let recipe = entry.fields;
 
-      let id = "ridk";
-      const newCard = `
+const addCard = (card, id) => {
+  const newCard = `
   <!-- start king room -->
         <div class="col-md-4 col-sm-6 col-xs-12 ">
 
           <div class="card inmatFade">
             <div class="hover-store text-center">
               <div class="img-store">
-                <img src=https:${recipe.fields.images[0]} class="card-img-top" alt="king room">
+                <img src=https:${card.images[3].fields.file.url} class="card-img-top" alt="king room">
               </div>
               <div class="back-img-store ">
                 <h3>السعر بالجنيه </h3>
-                <span class=" kingPrice label label-success">${recipe.price} الف</span>
+                <span class=" kingPrice label label-success">${card.price} الف</span>
               </div>
             </div>
 
             <div class="card-body">
-              <h5 class="card-title"><a href="#" data-toggle="modal" data-target=${"#" + id}>${recipe.title}<span
+              <h5 class="card-title"><a href="#" data-toggle="modal" data-target=${"#" + id}>${card.name}<span
                     class=" glyphicon glyphicon-tower"></a></h5>
 
 
               <!--end section pay room -->
 
-              <p class="card-text">${recipe.description}</p>
+              <p class="card-text">${card.description}</p>
               <button class="btn btn-primary btn-bg" href="showPay" data-toggle="modal" data-target='#myModal'>الشراء
                 الان</button>
             </div>
@@ -58,13 +51,13 @@ client.getEntries().then(function (entries) {
                   <!-- Wrapper for slides -->
                   <div class="carousel-inner">
                     <div class="item active">
-                      <img src=https:${recipe.fields.images[1]} alt="Los Angeles" style="max-height: 480px;">
+                      <img src=https:${card.images[0].fields.file.url} alt="Los Angeles" style="max-height: 480px;">
                     </div>
                     <div class="item">
-                      <img src=https:${recipe.fields.images[2]} alt="Chicago" style="max-height: 480px;">
+                      <img src=https:${card.images[2].fields.file.url} alt="Chicago" style="max-height: 480px;">
                     </div>
                     <div class="item">
-                      <img src=https:${recipe.fields.images[3]} alt="New York" style="max-height: 480px;">
+                      <img src=https:${card.images[3].fields.file.url} alt="New York" style="max-height: 480px;">
                     </div>
                   </div>
                   <!-- Left and right controls -->
@@ -91,10 +84,22 @@ client.getEntries().then(function (entries) {
 
         
 `;
-      cardContainer.innerHTML += newCard;
-      console.log(recipe);
+  cardContainer.innerHTML += newCard;
+};
+
+client.getEntries().then(function (entries) {
+  // log the title for all the entries that have it
+  console.log(entries);
+  entries.items.forEach(function (entry) {
+    console.log(entry);
+    if (entry) {
+      let id = "bgjlk";
+      console.log(entry.fields);
+      let card = entry.fields;
+      console.log(card.name);
+      addCard(card, id);
     } else {
-      console.log("nothing");
+      console.log(entry);
     }
   });
 });
