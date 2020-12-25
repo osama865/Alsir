@@ -35,8 +35,8 @@ var firebaseConfig = {
 
   let data;
   let disLike = 1,
-    love = 473,
-    backUs = 295, 
+    love = 543,
+    backUs = 325, 
     cline = disLike + backUs + love;
 
   db.collection("reactions")
