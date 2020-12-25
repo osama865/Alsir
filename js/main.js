@@ -1,39 +1,58 @@
 $(document).ready(function () {
   new WOW().init();
 
-  var king = 95,
+
+var firebaseConfig = {
+      apiKey: "AIzaSyA9pMcUIE_lJhHqPyX1BDKxB6Rrc6q_r90",
+      authDomain: "pwa-os.firebaseapp.com",
+      databaseURL: "https://pwa-os.firebaseio.com",
+      projectId: "pwa-os",
+      storageBucket: "pwa-os.appspot.com",
+      messagingSenderId: "61929959554",
+      appId: "1:61929959554:web:3d0f8ace7a40097f75449b"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+  var king = 110,
     hello = 60,
-    onabi = 95,
-    normal = 85,
-    piajo = 799,
-    sooq = 140;
+    onabi = 110,
+    sahaab = 150,
+    normal = 95,
+    piajo = 880,
+    sooq = 160;
+    single = king-10;
   $(".normalPrice").text(normal + " الف");
   $(".kingPrice").text(king + " الف");
   $(".helloPrice").text(hello + " الف");
   $(".onabiPrice").text(onabi + " الف");
   $(".sooqPrice").text(sooq + " الف");
   $(".piajoPrice").text(piajo + " الف");
+  $(".singlePrice").text(single + " الف");
+  $(".shaabPrice").text(sahaab + " الف");
+  /* number of like and dislike...*/
 
   let data;
-  let cline = 3,
-    disLike = 1,
-    love = 1,
-    backUs = 1;
+  let disLike = 1,
+    love = 473,
+    backUs = 295, 
+    cline = disLike + backUs + love;
 
-  function preloadFunc() {
-    db.collection("reactions")
-      .doc("reacts")
-      .onSnapshot(function (doc) {
-        data = doc.data();
-        cline = data.client;
-        disLike = data.client;
-        love = data.client;
-        backUs = data.client;
-      });
-  }
-  window.onpaint = preloadFunc();
+  db.collection("reactions")
+    .doc("reacts")
+    .onSnapshot(function (doc) {
+      console.log("Current data: ", doc.data());
+      data = doc.data();
+      console.log(data.client);
+      cline = data.client;
+      disLike = data.client;
+      love = data.client;
+      backUs = data.client;
+      console.log(love);
+    });
 
-  var counter;
+  var count=1;
 
   function counterUp() {
     $(".love").animateNumber({ number: love }, 500);
@@ -42,6 +61,7 @@ $(document).ready(function () {
     $(".backUs").animateNumber({ number: backUs }, 500);
   }
 
+  // Loading page
   var loaderPage = function () {
     $(".fh5co-loader").fadeOut("slow");
   };
@@ -56,41 +76,42 @@ $(document).ready(function () {
 
   $(window).scroll(function () {
     var scroll = $(this).scrollTop(),
-      ofsec = 6000;
+      ofsec = 6440;
 
-    if (counter < 1 && scroll >= ofsec) {
+    if (count <= 1 && scroll >= ofsec) {
       $(".love").animateNumber(
         {
           number: love,
         },
-        500
+        4000
       );
 
       $(".cline").animateNumber(
         {
           number: cline,
         },
-        500
+        4000
       );
       $(".disLike").animateNumber(
         {
           number: disLike,
         },
-        500
+        4000
       );
       $(".backUs").animateNumber(
         {
           number: backUs,
         },
-        500
+        4000
       );
-      counter++;
+      count++;
       $(".whatsapp").fadeIn(4000);
     } else if (scroll < 4000) {
-      counter = 0;
+      count = 0;
       $(".whatsapp").fadeOut(4000);
     }
   });
+  /*check in form sell*/
   $("#phone").on("keyup", function () {
     var phoneNumber = $("#phone").val();
     if (phoneNumber.length < 10) {
@@ -105,6 +126,7 @@ $(document).ready(function () {
         .css({ color: "red", "font-size": "130%", "text-align": "right" });
   });
 
+  /*check in form sell*/
   $("#phonePiajo").on("keyup", function () {
     var phoneNumber = $("#phonePiajo").val();
     if (phoneNumber.length < 10) {
@@ -143,22 +165,38 @@ $(document).ready(function () {
       }, 4000);
       $(".message").fadeIn(1000);
     } else $(".message").fadeOut(200);
-  });
+  });$("button[data-dismiss='message']").click(function(){
+$(".message").remove();
+});
+  
   $(".comunitItemKing").click(function () {
     $(".comunitKing").slideToggle(500, function () {
-      $(".comunitNormal , .comunitHello").hide(500);
+      $(".comunitNormal , .comunitHello , .comunitsingle , .comunitSahaab").hide(500);
     });
   });
+
   $(".comunitItemNormal").click(function () {
     $(".comunitNormal").slideToggle(500, function () {
-      $(".comunitKing , .comunitHello").hide(500);
+      $(".comunitKing , .comunitHello , .comunitsingle , .comunitSahaab").hide(500);
     });
   });
   $(".comunitItemHello").click(function () {
     $(".comunitHello").slideToggle(500, function () {
-      $(".comunitKing , .comunitNormal").hide(500);
+      $(".comunitKing , .comunitNormal , .comunitsingle , .comunitSahaab").hide(500);
     });
   });
+  $(".comunitItemSingle").click(function () {
+    $(".comunitsingle").slideToggle(500, function () {
+      $(".comunitNormal , .comunitHello , .comunitKing , .comunitSahaab").hide(500);
+    });
+  });
+    $(".comunitsahaab").click(function () {
+    $(".comunitSahaab").slideToggle(500, function () {
+      $(".comunitNormal , .comunitHello , .comunitsingle , .comunitKing").hide(500);
+    });
+  });
+  
+
   $(window).scroll(function () {
     var sc = $(this).scrollTop();
     if (sc > 100) {
@@ -172,34 +210,38 @@ $(document).ready(function () {
   });
   $(".acer").click(function () {
     $(window).scrollTop(0);
-    counter = 0;
+    count = 0;
   });
 
   $("#keyAdmin").click(function () {
     $("#admin").show(400).css({ position: "absolute", right: "0" });
   });
 
-  $(".custom").click(function () {
-    r = 1;
-    if ($(this).hasClass("buttonReactActive")) {
-      return;
-    } else {
-      cline += 1;
-      love += 1;
-      let ref = db.collection("reactions").doc("reacts");
+
+
+$(".custom").click(function(){
+  r=1;
+if ($(this).hasClass("buttonReactActive")) {braek;}else
+{
+  cline+=1;
+      love+=1;
+       let ref = db.collection("reactions").doc("reacts");
       let incrementField = ref.update({
         love: love,
         client: cline,
       });
 
-      $(this).addClass("buttonReactActive");
-      $(".lover").addClass("buttonReactActive");
+      let choice = "back";
+      localStorage.setItem("choice", choice);
 
-      if ($(".reacome").hasClass("buttonReactActive")) {
-        $(".reacome").removeClass("buttonReactActive");
-        backUs -= 1;
-        cline -= 1;
-        let ref = db.collection("reactions").doc("reacts");
+    $(this).addClass("buttonReactActive");
+  $(".lover").addClass("buttonReactActive");
+
+  if ($(".reacome").hasClass("buttonReactActive")) {
+    $(".reacome").removeClass("buttonReactActive");
+    backUs-=1;
+    cline-=1;
+     let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
           backUs: backUs,
           client: cline,
@@ -207,74 +249,87 @@ $(document).ready(function () {
 
         let choice = "back";
         localStorage.setItem("choice", choice);
-      }
-      if ($(".hate").hasClass("buttonReactActive")) {
-        disLike -= 1;
-        cline -= 1;
-        let ref = db.collection("reactions").doc("reacts");
+  };
+  if ($(".hate").hasClass("buttonReactActive")) {
+    disLike-=1;
+    cline-=1;
+    let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
           disLike: disLike,
           client: cline,
         });
         let choice = "disLike";
         localStorage.setItem("choice", choice);
-        $(".hate").removeClass("buttonReactActive");
-      }
-    }
-    counterUp();
-  });
-  $(".lover").click(function () {
-    let choice = "love";
-    localStorage.setItem("choice", choice);
-    r = 1;
-    if ($(this).hasClass("buttonReactActive")) {
-      braek;
-    } else {
-      cline += 1;
-      love += 1;
-      let ref = db.collection("reactions").doc("reacts");
+    $(".hate").removeClass("buttonReactActive");
+  };
+};
+counterUp();
+
+});
+$(".lover").click(function(){
+  r=1;
+if ($(this).hasClass("buttonReactActive")) {
+    braek;
+  }else
+{
+ let choice = "love";
+      localStorage.setItem("choice", choice);
+
+  cline+=1;
+      love+=1;
+
+       let ref = db.collection("reactions").doc("reacts");
       let incrementField = ref.update({
         love: love,
         client: cline,
       });
 
-      $(this).addClass("buttonReactActive");
-      $(".custom").addClass("buttonReactActive");
 
-      if ($(".reacome").hasClass("buttonReactActive")) {
-        $(".reacome").removeClass("buttonReactActive");
-        backUs -= 1;
-        cline -= 1;
-        let ref = db.collection("reactions").doc("reacts");
+    $(this).addClass("buttonReactActive");
+  $(".custom").addClass("buttonReactActive");
+
+  if ($(".reacome").hasClass("buttonReactActive")) {
+    $(".reacome").removeClass("buttonReactActive");
+    backUs-=1;
+    cline-=1;
+    let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
           backUs: backUs,
           client: cline,
         });
-      }
-      if ($(".hate").hasClass("buttonReactActive")) {
-        disLike -= 1;
-        cline -= 1;
-        let ref = db.collection("reactions").doc("reacts");
+        let choice = "back";
+        localStorage.setItem("choice", choice);
+  };
+  if ($(".hate").hasClass("buttonReactActive")) {
+    disLike-=1;
+    cline-=1;
+    let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
           disLike: disLike,
           client: cline,
         });
-        $(".hate").removeClass("buttonReactActive");
-      }
-    }
-    counterUp();
-  });
+        let choice = "disLike";
+        localStorage.setItem("choice", choice);
+    $(".hate").removeClass("buttonReactActive");
+  };
+};
+counterUp();
 
-  $(".reacome").click(function () {
-    let choice = "back";
-    localStorage.setItem("choice", choice);
-    r = 1;
+});
 
-    if ($(this).hasClass("buttonReactActive")) {
-      braek;
-    } else {
-      backUs += 1;
-      cline += 1;
+
+$(".reacome").click(function(){
+  r=1;
+
+  if ($(this).hasClass("buttonReactActive")) {
+    braek;
+  }else
+  {
+ let choice = "back";
+      localStorage.setItem("choice", choice);
+
+    backUs+=1;
+  cline+=1;
 
       let ref = db.collection("reactions").doc("reacts");
       let incrementField = ref.update({
@@ -282,74 +337,81 @@ $(document).ready(function () {
         client: cline,
       });
 
-      $(this).addClass("buttonReactActive");
-      $(".custom").addClass("buttonReactActive");
+    $(this).addClass("buttonReactActive");
+  $(".custom").addClass("buttonReactActive");
 
-      if ($(".lover").hasClass("buttonReactActive")) {
-        $(".lover").removeClass("buttonReactActive");
-        love -= 1;
-        cline -= 1;
-        let ref = db.collection("reactions").doc("reacts");
+  if ($(".lover").hasClass("buttonReactActive")) {
+    $(".lover").removeClass("buttonReactActive");
+    love-=1;
+    cline-=1;
+    let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
           love: love,
           client: cline,
         });
-      }
-      if ($(".hate").hasClass("buttonReactActive")) {
-        $(".hate").removeClass("buttonReactActive");
-        disLike -= 1;
-        cline -= 1;
-        let ref = db.collection("reactions").doc("reacts");
+  };
+  if ($(".hate").hasClass("buttonReactActive")) {
+    $(".hate").removeClass("buttonReactActive");
+    disLike-=1;
+    cline-=1;
+     let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
           disLike: disLike,
           client: cline,
         });
-      }
-    }
-    counterUp();
-  });
+  };
+};
+counterUp();
+});
 
-  $(".hate").click(function () {
-    let choice = "disLike";
-    localStorage.setItem("choice", choice);
-    r = 1;
-    if ($(this).hasClass("buttonReactActive")) {
-      braek;
-    } else {
-      cline += 1;
-      disLike += 1;
-      let ref = db.collection("reactions").doc("reacts");
+$(".hate").click(function(){
+
+  r=1;
+if ($(this).hasClass("buttonReactActive")) {
+    braek;
+  }else
+  {
+
+
+cline+=1;
+disLike+=1;
+ let ref = db.collection("reactions").doc("reacts");
       let incrementField = ref.update({
         disLike: disLike,
         client: cline,
       });
+      let choice = "disLike";
+      localStorage.setItem("choice", choice);
+$(this).addClass("buttonReactActive");
+$(".custom").addClass("buttonReactActive");
 
-      $(this).addClass("buttonReactActive");
-      $(".custom").addClass("buttonReactActive");
-
-      if ($(".lover").hasClass("buttonReactActive")) {
-        $(".lover").removeClass("buttonReactActive");
-        love -= 1;
-        cline -= 1;
-        let ref = db.collection("reactions").doc("reacts");
+if ($(".lover").hasClass("buttonReactActive")) {
+$(".lover").removeClass("buttonReactActive");
+love-=1;
+cline-=1;
+ let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
           love: love,
           client: cline,
         });
-      }
-      if ($(".reacome").hasClass("buttonReactActive")) {
-        $(".reacome").removeClass("buttonReactActive");
-        backUs -= 1;
-        cline -= 1;
-        let ref = db.collection("reactions").doc("reacts");
+};
+if ($(".reacome").hasClass("buttonReactActive")) {
+$(".reacome").removeClass("buttonReactActive");
+backUs-=1;
+    cline-=1;
+      let ref = db.collection("reactions").doc("reacts");
         let incrementField = ref.update({
           backUs: backUs,
           client: cline,
         });
-      }
-    }
-    counterUp();
-  });
+
+  };
+  };
+counterUp();
+
+});
+
+  console.log(localStorage.getItem("choice"));
 
   function setChoiceToHTML() {
     const clients = document.querySelector(".custom");
@@ -357,16 +419,27 @@ $(document).ready(function () {
     const back = document.querySelector(".reacome");
     const disLike = document.querySelector(".hate");
     if (localStorage.getItem("choice") === "love") {
+      // make love and clients clicked and dislike , back unclicked
+      console.log("working", love);
       love.classList.add("buttonReactActive");
       clients.classList.add("buttonReactActive");
     } else if (localStorage.getItem("choice") === "disLike") {
+      // make dislike and clients clicked and love , back unclicked
       disLike.classList.add("buttonReactActive");
       clients.classList.add("buttonReactActive");
     } else if (localStorage.getItem("choice") === "back") {
+      // make back and clients clicked and love , dislike unclicked
       back.classList.add("buttonReactActive");
       clients.classList.add("buttonReactActive");
     }
-  }
+  };
+
+  $("#submitForm").click(function(){
+window.location.href = "tel://0118839796";
+  });
+
+
+
 
   $(function () {
     setChoiceToHTML();
