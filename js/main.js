@@ -445,4 +445,11 @@ window.location.href = "tel://0118839796";
     setChoiceToHTML();
     loaderPage();
   });
+// -----------------The Wheel--------------------------
+
+ $("a").click(function(){
+  alert("hfhh");
+ })
+
+
 });

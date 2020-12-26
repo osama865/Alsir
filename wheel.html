@@ -4,13 +4,17 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Spinit - wheeloffortune [by tedy]</title>
+		  <link rel="stylesheet" type="text/css" href="css/util.css">
+
  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/animate.css">
   <link href="fontawesome/css/svg-with-js.min.css" rel="stylesheet" type="text/css" />
   <link href="fontawesome/css/all.min.css" rel="stylesheet" type="text/css" />
   <link href="fontawesome/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
-  <link href="fontawesome/css/v4-shims.min.css" rel="stylesheet" type="text/css" />		<style>
+  <link href="fontawesome/css/v4-shims.min.css" rel="stylesheet" type="text/css" />	
+
+  	<style>
 			.spin-container{
 				background-color: #444;
 		    	height: 640px;
@@ -59,7 +63,40 @@
 
 		</style>
 	</head>
-	<body>  
+	<body> 
+	<div class="limiter" id="login">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-85 p-b-20">
+				<form class="login100-form ">
+					<span class="login100-form-title p-b-70">
+						Welcome
+					</span>
+					<span class="login100-form-avatar">
+						<img src="image/omer.jpg" alt="AVATAR">
+					</span>
+
+					<div class="wrap-input100  m-t-85 m-b-35" >
+						<input type="text" class="input100 user" type="text" name="username">
+						<span class="focus-input100" data-placeholder="Username"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+						<input class="input100 pass" type="password" name="pass">
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" id="valid">
+							Login
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+
 
   <!-- start header formation -->
   <header class="formation navbar-fixed-top">
@@ -150,7 +187,6 @@
     <!-- /.container -->
   </nav>
   <!--end navbar -->
-
 		<h1 class="text-center">إضغط على العجله و اربح معنا قسيمه تخفيض مجانيه</h1>
 		<p class="lead text-center" style="font-size: 35px; font-weight: 700;">للف عجله الحظ يلزم عمل لايك لصفحه الفيسبوك و عمل اسكرين للعجله و ارساله في رقم الواتس<br>  <a href="https://wa.me/249996765580">
               <i class="  fa fa-whatsapp"></i>
@@ -160,7 +196,7 @@
 	<h1 >تهانينا</h1>
 	<p class="messageWheel" style="font-size: 40px;" dir="rtl">
 </p>
-<div style="font-size: 30px;font-weight: 900;">قم بعمل لقطه شاشه قبل إختفاء العجله في 60 ثانسه <span class="wow counter-num wheel">0</span> ثانيه</div>
+<div style="font-size: 30px;font-weight: 900;">قم بعمل لقطه شاشه قبل إختفاء العجله في 60 ثانيه <span class="wow counter-num wheel">0</span> ثانيه</div>
 </div>
 		<div class="spin-container">
 			<div class="spinflapper"></div>
@@ -186,7 +222,20 @@
 
 		<script>
 					  new WOW().init();
-			    
+					  var userName = "Omer",
+    passWord = "omer1234";
+
+    			        function validatForm(){
+  if ($(".user").val() === userName && $(".pass").val() === passWord) {
+$("#login").remove();
+  }else{
+alert("password or userName not right");
+  };
+    };
+ $("#valid").click(function(){
+validatForm(); 
+});
+
 
 		var waitTime = 60;
 		var rand = Math.round(Math.exp(Math.random() *Math.log(8-0+1)))+0;
@@ -293,5 +342,9 @@
  				});
 			})
 		</script>
+
+  <!-- start javascript -->
+  <script type="text/javascript" src="js/main.js"></script>
+
 	</body>
 </html>
