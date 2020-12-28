@@ -15,6 +15,12 @@
   <link href="fontawesome/css/v4-shims.min.css" rel="stylesheet" type="text/css" />	
 
   	<style>
+  	.reposition{
+  		position: absolute;
+    top: 50px;
+    right: 25%;
+    left: 25%;
+  	}
 			.spin-container{
 				background-color: #444;
 		    	height: 640px;
@@ -60,21 +66,59 @@
 	.gouncrat{
 		display: none;
 	}
+	form{
+		position: relative;
+	}
 
 		</style>
 	</head>
 	<body> 
+
 	<div class="limiter" id="login">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
+			
 				<form class="login100-form ">
-					<span class="login100-form-title p-b-70">
+						<span class="login100-form-title p-b-70">
 						Welcome
 					</span>
-					<span class="login100-form-avatar">
+					<div class="text-center row">
+						<div class="col-md-4 col-sm-6"  id="sawsan">
+					<span class="login100-form-avatar ">
+						<img src="image/avatar2.png" alt="AVATAR">
+					</span>
+					<h2>Sawsan</h2>
+					</div>
+						<div class="col-md-4 col-sm-6" id="abdo">
+					<span class="login100-form-avatar" >
+						<img src="image/avatar.png" alt="AVATAR">
+					</span>
+					<h2>abdo</h2>
+						</div>
+						<div class="col-md-4 col-sm-6" id="mustafa">
+					<span class="login100-form-avatar" >
+						<img src="image/avatar.png" alt="AVATAR">
+					</span>
+					<h2>mustafa</h2>
+						</div>
+						<div class="col-md-4 col-sm-6" id="mazin">
+					<span class="login100-form-avatar" >
+						<img src="image/avatar.png" alt="AVATAR">
+					</span>
+					<h2>mazin</h2>
+						</div>
+						<div class="col-md-4 col-sm-6" id="Omer">
+					<span class="login100-form-avatar" >
 						<img src="image/omer.jpg" alt="AVATAR">
 					</span>
-
+					<h2>omer</h2>
+						</div>
+						<div class="col-md-4 col-sm-6"  id="mohammed">
+					<span class="login100-form-avatar">
+						<img src="image/avatar.png" alt="AVATAR">
+					</span>
+					<h2>mohammed</h2>
+					</div>					</div>
 					<div class="wrap-input100  m-t-85 m-b-35" >
 						<input type="text" class="input100 user" type="text" name="username">
 						<span class="focus-input100" data-placeholder="Username"></span>
@@ -222,19 +266,88 @@
 
 		<script>
 					  new WOW().init();
-					  var userName = "Omer",
-    passWord = "omer1234";
+					
 
-    			        function validatForm(){
-  if ($(".user").val() === userName && $(".pass").val() === passWord) {
+    			        function validatOmer(user , pass){
+
+  if ($(".user").val() === user && $(".pass").val() === pass) {
 $("#login").remove();
   }else{
 alert("password or userName not right");
   };
     };
- $("#valid").click(function(){
-validatForm(); 
+
+$("#Omer").click(function(){
+	  var userOmer = "Omer",
+    passOmer = "omer1234";
+$("#sawsan , #mazin , #abdo , #mustafa , #mohammed").fadeOut(300, function(){
+$("#Omer").addClass("reposition");
 });
+$("#valid").click(function(){
+	validatOmer(userOmer , passOmer);
+});
+});
+$("#sawsan").click(function(){
+	  var userSawsan = "Sawsan",
+    passSawsan = "sawsan1234";
+$("#Omer , #mazin , #abdo , #mustafa , #mohammed").fadeOut(300, function(){
+$("#sawsan").addClass("reposition");
+});
+$("#valid").click(function(){
+	validatOmer(userSawsan , passSawsan);
+});
+$(this).addClass("reposition");
+
+});
+$("#mazin").click(function(){
+	  var userMazin = "Mazin",
+    passMazin = "mazin1234";
+$("#Omer , #sawsan , #abdo , #mustafa , #mohammed").fadeOut(300, function(){
+$("#mazin").addClass("reposition");
+});
+$("#valid").click(function(){
+	validatOmer(userMazin , passMazin);
+});
+$(this).addClass("reposition");
+
+});
+$("#abdo").click(function(){
+	  var userAbdo = "Abdo",
+    passAbdo = "abdo1234";
+$("#Omer , #sawsan , #mazin , #mustafa , #mohammed").fadeOut(300, function(){
+$("#abdo").addClass("reposition");
+});
+$("#valid").click(function(){
+	validatOmer(userAbdo , passAbdo);
+});
+$(this).addClass("reposition");
+
+});
+$("#mustafa").click(function(){
+	  var userMustafa = "Mustafa",
+    passMustafa = "mustafa1234";
+$("#Omer , #sawsan , #mazin , #abdo , #mohammed").fadeOut(300, function(){
+$("#mustafa").addClass("reposition");
+});
+$("#valid").click(function(){
+	validatOmer(userMustafa , passMustafa);
+});
+$(this).addClass("reposition");
+
+});
+$("#mohammed").click(function(){
+	  var userMohammed = "Mohammed",
+    passMohammed = "mohammed1234";
+$("#Omer , #sawsan , #mazin , #abdo , #mustafa").fadeOut(300, function(){
+$("#mohammed").addClass("reposition");
+});
+$("#valid").click(function(){
+	validatOmer(userMohammed , passMohammed);
+});
+$(this).addClass("reposition");
+
+});
+
 
 
 		var waitTime = 60;
@@ -340,7 +453,9 @@ validatForm();
 					
 					
  				});
-			})
+			});
+
+			
 		</script>
 
   <!-- start javascript -->
