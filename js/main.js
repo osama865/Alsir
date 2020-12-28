@@ -344,15 +344,5 @@ $(document).ready(function () {
     setChoiceToHTML();
     loaderPage();
   });
-<<<<<<< HEAD
-// -----------------The Wheel--------------------------
-)
 
-=======
-  // -----------------The Wheel--------------------------
->>>>>>> 02cb15b7d00c756760975aa347e02c7b192a4db9
-
-  $("a").click(function () {
-    alert("hfhh");
-  });
 });
