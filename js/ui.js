@@ -1,11 +1,29 @@
 const cardContainer = document.querySelector("#rooms-c");
 
 var client = contentful.createClient({
-  space: process.env.SPACE_ID,
-  accessToken: process.env.ACCESS_TOKEN,
+  space: "18yoosog20ju",
+  accessToken: "0I3QCVzsfU2UZolz1Fp3xA8LG8w5oyiXkBGHapaR8JI",
+});
+
+client.getEntries().then(function (entries) {
+  // log the title for all the entries that have it
+  console.log(entries);
+  entries.items.forEach(function (entry) {
+    console.log(entry);
+    if (entry) {
+      let id = "bgjlk";
+      console.log(entry.fields);
+      let card = entry.fields;
+      console.log(card.name);
+      addCard(card, id);
+    } else {
+      console.log(entry);
+    }
+  });
 });
 
 const addCard = (card, id) => {
+  console.log(card);
   const newCard = `
   <!-- start king room -->
         <div class="col-md-4 col-sm-6 col-xs-12 ">
@@ -87,22 +105,6 @@ const addCard = (card, id) => {
   cardContainer.innerHTML += newCard;
 };
 
-client.getEntries().then(function (entries) {
-  // log the title for all the entries that have it
-  console.log(entries);
-  entries.items.forEach(function (entry) {
-    console.log(entry);
-    if (entry) {
-      let id = "bgjlk";
-      console.log(entry.fields);
-      let card = entry.fields;
-      console.log(card.name);
-      addCard(card, id);
-    } else {
-      console.log(entry);
-    }
-  });
-});
 const removeCard = id => {
   const newCard = `
   <!-- start king room -->
