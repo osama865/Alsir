@@ -4,7 +4,7 @@ $(document).ready(function () {
   var king = 160,
     hello = 90,
     onabi = 170,
-    sahaab = 0,
+    sahaab = '-' ,
     normal = 140,
     piajo = 1100,
     sooq = 160;
