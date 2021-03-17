@@ -1,11 +1,11 @@
 $(document).ready(function () {
   new WOW().init();
 
-  var king = 160,
+  var king = 155,
     hello = 90,
     onabi = 170,
     sahaab = '-' ,
-    normal = 140,
+    normal = 135,
     piajo = 1100,
     sooq = 160;
   single = king - 10;
