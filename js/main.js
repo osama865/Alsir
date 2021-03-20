@@ -8,7 +8,7 @@ $(document).ready(function () {
     normal = 140,
     piajo = 1100,
     sooq = 160;
-  single = king + 20;
+  single = 180;
   $(".normalPrice").text(normal + " الف");
   $(".kingPrice").text(king + " الف");
   $(".helloPrice").text(hello + " الف");
