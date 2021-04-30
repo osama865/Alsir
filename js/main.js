@@ -6,9 +6,9 @@ $(document).ready(function () {
     onabi = 170,
     sahaab = '-' ,
     normal = 140,
-    piajo = 1100,
-    sooq = 160;
-  single = 180;
+    piajo = 1180,
+    sooq = 165;
+  single = 170;
   $(".normalPrice").text(normal + " الف");
   $(".kingPrice").text(king + " الف");
   $(".helloPrice").text(hello + " الف");
