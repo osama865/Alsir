@@ -1,14 +1,14 @@
 $(document).ready(function () {
   new WOW().init();
 
-  var king = 160,
+  var king = 170,
     hello = 90,
-    onabi = 170,
+    onabi = 180,
     sahaab = '-' ,
-    normal = 140,
-    piajo = 1180,
+    normal = 150,
+    piajo = - ,
     sooq = 165;
-  single = 170;
+  single = 180;
   $(".normalPrice").text(normal + " الف");
   $(".kingPrice").text(king + " الف");
   $(".helloPrice").text(hello + " الف");
