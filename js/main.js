@@ -7,7 +7,7 @@ $(document).ready(function () {
     sahaab = '-' ,
     normal = 180,
     piajo = - ,
-    sooq = 202;
+    sooq = 202, 
   single = 210;
   $(".normalPrice").text(normal + " الف");
   $(".kingPrice").text(king + " الف");
