@@ -6,7 +6,7 @@ $(document).ready(function () {
     onabi = 220,
     sahaab = '-' ,
     normal = 180,
-    piajo = - ,
+    piajo = '-' ,
     sooq = 202, 
   single = 210;
   $(".normalPrice").text(normal + " الف");
